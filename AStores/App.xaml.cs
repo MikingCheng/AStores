@@ -11,6 +11,9 @@ using System.Drawing;
 
 using AStores.ViewModel;
 using AStores.Views;
+using AStores.SDLScale.Interface;
+using AStores.SDLScale;
+using AStores.Utilities;
 
 namespace AStores
 {
@@ -34,8 +37,17 @@ namespace AStores
                 w2 = new SecondWindow();
                 s2 = System.Windows.Forms.Screen.AllScreens[1];
             }
+
             LoadData();
 
+            ISDLScale sdlScale = new ConSDLScale(ParameterManager.Instance.ComPort, ParameterManager.Instance.Baud);
+            StartScale(sdlScale);
+        }
+
+        private void StartScale(ISDLScale scale)
+        {
+            scale.InitScale();
+            throw new NotImplementedException();
         }
 
         public ObservableCollection<ToDoItem> TodoLists

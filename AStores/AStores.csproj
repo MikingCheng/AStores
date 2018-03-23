@@ -82,6 +82,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SqlClient, Version=4.2.0.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.4.3\lib\net461\System.Data.SqlClient.dll</HintPath>
@@ -121,6 +122,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\UpdateScale.cs" />
+    <Compile Include="Utilities\ParameterManager.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="ViewModel\TodoList.cs" />
     <Compile Include="Views\Configuration.xaml.cs">
@@ -211,6 +214,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\dabaicai.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SDLScale\SDLScale.csproj">
+      <Project>{8aececff-260b-4700-919e-7991c92c29b6}</Project>
+      <Name>SDLScale</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

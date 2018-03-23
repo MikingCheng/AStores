@@ -3,42 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SdlSerialPort;
-using SDLScale.Interface;
+using AStores.SDLScale.Interface;
 using System.Threading;
 
-namespace SDLScale
+namespace AStores.SDLScale
 {
-    public class SDLScale: ISDLScale
+    public class ConSDLScale: ISDLScale
     {
+        string _comPort;
+        int _baud;
         decimal _weight;
         string _unit;
         decimal _tare;
         string _errorMessage = string.Empty;
 
         ISdlinterface sdlinft = null;
-        public SDLScale()
+
+
+        public ConSDLScale(string cp, int bd)
         {
-            sdlinft = new SdlSP();
+            _comPort = cp;
+            _baud = bd;
+            sdlinft = new SdlSX();
         }
-        public void InitScale(string comport, int baud)
+
+        public void InitScale()
         {
 
             if (sdlinft == null)
             {
                 sdlinft = new SdlSX();
-                sdlinft.Open(comport, baud);
+                sdlinft.Open(_comPort, _baud);
             }
             else
             {
                 sdlinft.Close();
                 sdlinft = new SdlSX();
-                sdlinft.Open(comport, baud);
+                sdlinft.Open(_comPort, _baud);
             }
         }
 
-        public bool SingleReadWeight()
+        public bool ReadWeight()
         {
-            bool brt = sdlinft.StartOneRead();
+            bool brt = sdlinft.StartRead();
             return brt;
         }
 

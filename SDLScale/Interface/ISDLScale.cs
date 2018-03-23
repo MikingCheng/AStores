@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SDLScale.Interface
+namespace AStores.SDLScale.Interface
 {
     public interface ISDLScale
     {
-        void InitScale(string comport, int baud);
-        bool SingleReadWeight();
+        void InitScale();
+        bool ReadWeight();
         bool Reset();
         bool SetTare();
 
