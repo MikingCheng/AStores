@@ -6,6 +6,15 @@
         xmlns:local="clr-namespace:AStores.Views"
         mc:Ignorable="d"
         Title="ItemOrganization" Height="768" Width="1024"  WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+    <Window.Resources>
+        <Style x:Key="imageButton" TargetType="Button">
+            <Setter Property="Margin" Value="10, 20"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
@@ -30,9 +39,269 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
-            <DataGrid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Style="{StaticResource SubGrid}" >
+                <DataGrid ScrollViewer.VerticalScrollBarVisibility="Hidden" Name="orderCheckGrid" 
+                                            ItemsSource="{Binding CheckModelList, UpdateSourceTrigger=PropertyChanged}" 
+                                            AutoGenerateColumns="False" ColumnHeaderHeight="30"  SelectionMode="Single" 
+                                            CanUserSortColumns="False" CanUserReorderColumns="True" CanUserResizeColumns="False" 
+                                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" 
+                                            GridLinesVisibility="None" HeadersVisibility="Column" CanUserResizeRows="False" 
+                                            Background="White" CanUserAddRows="False" Focusable="False" BorderThickness="0" 
+                                            Margin="2,1,1,1" IsReadOnly="True" FontFamily="Gill Sans MT">
+                    <!--<i:Interaction.Triggers>
+                <i:EventTrigger EventName="PreviewMouseUp">
+                    <i:InvokeCommandAction Command="{Binding OrderCheckMouseUpCommand}" CommandParameter="{Binding ElementName=orderCheckGrid}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>-->
 
-            </DataGrid>
+                    <!--<DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="FontSize" Value="14"/>
+                </Style>
+            </DataGrid.CellStyle>-->
+
+                    <!--<DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="LightBlue">
+                        -->
+                    <!--<Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="White" Offset="0"/>
+                                <GradientStop Color="#BFBFBF" Offset="1"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+
+                        </Setter.Value>-->
+                    <!--
+                    </Setter>
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Margin" Value="0,1,0,10"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="Margin" Value="1"/>
+                </Style>-->
+                    <!--</DataGrid.ColumnHeaderStyle>-->
+
+                    <DataGrid.Columns>
+
+                        <DataGridTemplateColumn Header="Time"  x:Name="timeColumn" Width="120" IsReadOnly="True" CanUserSort="True" 
+                                        SortMemberPath="Time">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding Path=Time}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Check" Width="120" x:Name="checkColumn" IsReadOnly="True" CanUserSort="True" SortMemberPath="Check">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding Path=Check}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Payment Type" x:Name="paymentTypeColumn"  Width="2*" IsReadOnly="True" CanUserSort="True" SortMemberPath="PaymentType">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding Path=PaymentType}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Amount" Width="100" x:Name="amountColumn" IsReadOnly="True" CanUserSort="True" SortMemberPath="Amount">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <!--<TextBlock Text="{Binding Path=Amount, Converter={StaticResource DecimalToCurrenceyConverter}}" />-->
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Voided" Width="*" x:Name="voidedColumn" IsReadOnly="True" CanUserSort="True" SortMemberPath="VoidedChar">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Foreground="Red" FontWeight="Bold" Text="{Binding Path=VoidedChar}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button Width="40" Height="40" Style="{StaticResource imageButton}">
+                        <Image Source="/images/add-1.png"  />
+                    </Button>
+                    <Button Width="50" Height="50"  Style="{StaticResource imageButton}">
+                        <Image Source="/images/minus-1.png" Margin="5"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="160"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource regularTextBlockRight}">产品编码：</TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource regularTextBlockLeft}">05132</TextBlock>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0"  Style="{StaticResource regularTextBlockRight}">产品名称：</TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="1"  Style="{StaticResource regularTextBlockLeft}">Apple</TextBlock>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0"  Style="{StaticResource regularTextBlockRight}">原 价 格：</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="1"  Style="{StaticResource regularTextBlockLeft}" Foreground="Black">
+                2.50</TextBlock>
+
+                    <Border Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3">
+                        <Image Source="/images/dabaicai.png" Margin="0" HorizontalAlignment="Left"  VerticalAlignment="Bottom"></Image>
+                    </Border>
+
+                </Grid>
+                <Grid Grid.Row="1">
+                    <DataGrid ScrollViewer.VerticalScrollBarVisibility="Hidden" Name="orderCheckGrid1" 
+                                            ItemsSource="{Binding CheckModelList, UpdateSourceTrigger=PropertyChanged}" 
+                                            AutoGenerateColumns="False" ColumnHeaderHeight="30"  SelectionMode="Single" 
+                                            CanUserSortColumns="False" CanUserReorderColumns="True" CanUserResizeColumns="False" 
+                                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" 
+                                            GridLinesVisibility="None" HeadersVisibility="Column" CanUserResizeRows="False" 
+                                            Background="White" CanUserAddRows="False" Focusable="False" BorderThickness="0" 
+                                            Margin="2,1,1,1" IsReadOnly="True" FontFamily="Gill Sans MT">
+                        <!--<i:Interaction.Triggers>
+                <i:EventTrigger EventName="PreviewMouseUp">
+                    <i:InvokeCommandAction Command="{Binding OrderCheckMouseUpCommand}" CommandParameter="{Binding ElementName=orderCheckGrid}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>-->
+
+                        <!--<DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="FontSize" Value="14"/>
+                </Style>
+            </DataGrid.CellStyle>-->
+
+                        <!--<DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="LightBlue">
+                        -->
+                        <!--<Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="White" Offset="0"/>
+                                <GradientStop Color="#BFBFBF" Offset="1"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+
+                        </Setter.Value>-->
+                        <!--
+                    </Setter>
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Margin" Value="0,1,0,10"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="Margin" Value="1"/>
+                </Style>-->
+                        <!--</DataGrid.ColumnHeaderStyle>-->
+
+                        <DataGrid.Columns>
+
+                            <DataGridTemplateColumn Header="Time"  x:Name="timeColumn1" Width="120" IsReadOnly="True" CanUserSort="True" 
+                                        SortMemberPath="Time">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding Path=Time}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Check" Width="120" x:Name="checkColumn1" IsReadOnly="True" CanUserSort="True" SortMemberPath="Check">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding Path=Check}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Payment Type" x:Name="paymentTypeColumn1"  Width="2*" IsReadOnly="True" CanUserSort="True" SortMemberPath="PaymentType">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding Path=PaymentType}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Amount" Width="100" x:Name="amountColumn1" IsReadOnly="True" CanUserSort="True" SortMemberPath="Amount">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <!--<TextBlock Text="{Binding Path=Amount, Converter={StaticResource DecimalToCurrenceyConverter}}" />-->
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Voided" Width="*" x:Name="voidedColumn1" IsReadOnly="True" CanUserSort="True" SortMemberPath="VoidedChar">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <TextBlock Foreground="Red" FontWeight="Bold" Text="{Binding Path=VoidedChar}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+
+            </Grid>
+            <Grid Grid.Column="3">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button Width="60" Height="60" Margin="10, 120, 10, 20"  Style="{StaticResource imageButton}" >
+                        <Image Source="/images/folder-16.png" Margin="10"/>
+                    </Button>
+                    <Button Width="60" Height="60" Margin="10, 20" Style="{StaticResource imageButton}">
+                        <Image Source="/images/folder-15.png" Margin="10"/>
+                    </Button>
+                    <Button Width="60" Height="60" Margin="10, 100, 10,20" Style="{StaticResource imageButton}">
+                        <Image Source="/images/save.png" Margin="10"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
         </Grid>
     </Grid>
 </Window>
+ 

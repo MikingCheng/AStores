@@ -1,28 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using AStores.ViewModel;
+using System.Timers;
+using System.Windows;
 
 namespace AStores.Services
 {
     public class UpdateScale
     {
 
-        public void StartUpdate()
+        Timer Scaletimer;
+        MainWindowViewModel vm;
+        public UpdateScale(Window w)
         {
-
+            var vm = w.DataContext as MainWindowViewModel;
+            Scaletimer = new Timer(1000);
+            Scaletimer.Elapsed += vm.HandleTimer;
+            Scaletimer.AutoReset = true;
+            Scaletimer.Enabled = true;
         }
-        Thread t = new Thread(
-  delegate () {
-      while (_running)
-      {
-          DoSomething();
-          Thread.Sleep(50);
-      }
-  }
-);
-        t.Start();
+
+        public void TimerStart()
+        {
+            Scaletimer.Start();
+        }
     }
 }

@@ -104,6 +104,7 @@
       <HintPath>..\packages\WPFToolkit.3.5.50211.1\lib\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -122,9 +123,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\ShowSecondScreen.cs" />
     <Compile Include="Services\UpdateScale.cs" />
     <Compile Include="Utilities\ParameterManager.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\TodoList.cs" />
     <Compile Include="Views\Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>
@@ -220,6 +224,34 @@
       <Project>{8aececff-260b-4700-919e-7991c92c29b6}</Project>
       <Name>SDLScale</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\add-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\cloud-computing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\settings-6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\folder-7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\minus-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\folder-15.png" />
+    <Resource Include="images\folder-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\save.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

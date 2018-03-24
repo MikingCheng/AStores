@@ -1,14 +1,20 @@
 ﻿<Window x:Class="AStores.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AStores.ViewModel"
+        xmlns:vm="clr-namespace:AStores.ViewModel"
         mc:Ignorable="d" 
-        WindowState="Maximized"
+        WindowState="Maximized" 
         WindowStyle="None"
         Title="MainWindow" >
-        <!--Width="1024" Height="768"--> 
+        <!--Width="1024" Height="768"-->
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+
     <Window.Resources>
         <local:TodoList x:Key="mytodolist"></local:TodoList>
         <Style TargetType="Rectangle">
@@ -57,6 +63,22 @@
               x:Key="listingDataView" />
 
     </Window.Resources>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding WindowLoadCommand}" CommandParameter="{Binding ElementName=Window}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="KeyUp">
+            <i:InvokeCommandAction Command="{Binding WindowKeyCommand}"/>
+        </i:EventTrigger>
+
+        <i:EventTrigger EventName="Activated">
+            <i:InvokeCommandAction Command="{Binding WindowActivatedCommand}" CommandParameter="{Binding ElementName=Window}"/>
+        </i:EventTrigger>
+
+    </i:Interaction.Triggers>
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"></RowDefinition>
@@ -76,7 +98,7 @@
             </Grid>
             <Grid Grid.Column="1" Margin="25, 5">
                 <Label Style="{StaticResource weightSmall}">重量/Kg</Label>
-                <TextBlock Style="{StaticResource weightBig}" Text="8.88"></TextBlock>
+                <TextBlock Style="{StaticResource weightBig}" Text="{Binding Path=Weight }"  ></TextBlock>
             </Grid>
             <Grid Grid.Column="2" Margin="25, 5">
                 <Label Style="{StaticResource weightSmall}">单价/元</Label>
@@ -176,29 +198,34 @@
                     <ContextMenu BorderThickness="0">
                         <MenuItem Header="菜单下载" FontSize="16" Height="40" Margin="2" Click="DownloadProduct_Click">
                             <MenuItem.Icon>
-                                <TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xE896;"></TextBlock>
+                                <Image Source="images/cloud-computing.png"></Image>
+                                <!--<TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xE896;"></TextBlock>-->
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Header="价格修改" FontSize="16" Height="40"  Margin="2" Click="PriceModification_Click">
                             <MenuItem.Icon>
-                                <TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xEB7E;"></TextBlock>
+                                <Image Source="images/edit.png"></Image>
+                                <!--<TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xEB7E;"></TextBlock>-->
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Header="菜单组织" FontSize="16" Height="40"  Margin="2" Click="ProductOrganization_Click">
                             <MenuItem.Icon>
-                                <TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xEA86;"></TextBlock>
+                                <Image Source="images/folder-7.png"></Image>
+                                <!--<TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xEA86;"></TextBlock>-->
                             </MenuItem.Icon>
                         </MenuItem>
                         <Separator Margin="2"/>
                         <MenuItem Header="参数配置" FontSize="16" Height="40" Margin="2" Click="Configuration_Click">
                             <MenuItem.Icon>
-                                <TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xE713;"></TextBlock>
+                                <Image Source="images/settings-6.png"></Image>
+                                <!--<TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xE713;"></TextBlock>-->
                             </MenuItem.Icon>
                         </MenuItem>
                         <Separator Margin="2"/>
                         <MenuItem Header="报表查阅" FontSize="16" Height="40" Margin="2" Click="TransactionReport_Click">
                             <MenuItem.Icon>
-                                <TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xF168;"></TextBlock>
+                                <Image Source="images/note.png"/>
+                                <!--<TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xF168;"></TextBlock>-->
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Header="second Monitor" FontSize="16" Height="40" Margin="2" Click="Second_Click">

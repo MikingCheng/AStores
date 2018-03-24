@@ -21,6 +21,12 @@
 
 
     </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"></KeyBinding>
+        <KeyBinding Key="Esc" Command="{Binding ExitCommand}" CommandParameter="{Binding ElementName=Window}"></KeyBinding>
+    </Window.InputBindings>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
@@ -190,6 +196,8 @@
                     </Border>
 
                 </Grid>
+                
+                
                 <Grid Grid.Row="1" Margin="5" Width="260" Height="220"  >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
