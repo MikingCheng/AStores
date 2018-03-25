@@ -19,13 +19,13 @@ namespace ApplicationCore.Entities
     public decimal F_TaxAmt { get; set; } = 0;
     public decimal F_TotalDue { get; set; }
 
-    public int CustomerId { get; set; } = 0;
+    public Guid CustomerId { get; set; }
     public Customer Customer { get; set; }
 
-    public int PaymentMethodId { get; set; }
+    public Guid PaymentMethodId { get; set; }
     public PaymentMethod PaymentMethod { get; set; }
 
-    public int OrderStatusId { get; set; }
+    public Guid OrderStatusId { get; set; }
     public OrderStatus OrderStatus { get; set; }
 
     public IReadOnlyList<OrderItem> OrderItems => _items.AsReadOnly();
@@ -40,6 +40,4 @@ namespace ApplicationCore.Entities
       existItem.F_Quantity += item.F_Quantity;
     }
   }
-
-
 }

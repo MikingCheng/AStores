@@ -10,7 +10,7 @@ namespace ApplicationCore.Entities
   {
     public decimal F_NewPrice { get; set; }
     public Product Product { get; set; }
-    public int F_ProductId { get; set; }
+    public Guid F_ProductId { get; set; }
 
   }
 }

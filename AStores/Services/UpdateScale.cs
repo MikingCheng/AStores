@@ -11,7 +11,7 @@ namespace AStores.Services
         MainWindowViewModel vm;
         public UpdateScale(Window w)
         {
-            var vm = w.DataContext as MainWindowViewModel;
+            vm = w.DataContext as MainWindowViewModel;
             Scaletimer = new Timer(1000);
             Scaletimer.Elapsed += vm.HandleTimer;
             Scaletimer.AutoReset = true;

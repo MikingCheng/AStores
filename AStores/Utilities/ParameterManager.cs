@@ -15,6 +15,7 @@ namespace AStores.Utilities
 
         string _comport = string.Empty;
         int _baud = 0;
+        string _demoScale = string.Empty;
 
         public static ParameterManager Instance
         {
@@ -48,13 +49,25 @@ namespace AStores.Utilities
             }
         }
 
+        public string DemoScale
+        {
+            get
+            {
+                if (_demoScale == string.Empty)
+                {
+                    _demoScale = ConfigurationManager.AppSettings["DemoScale"];
+                }
+                return _demoScale;
+            }
+        }
+
         public int Baud
         {
             get
             {
                 if (_baud == 0)
                 {
-                    _comport = ConfigurationManager.AppSettings["Baud"];
+                    _baud = int.Parse( ConfigurationManager.AppSettings["Baud"]);
                 }
                 return _baud;
             }

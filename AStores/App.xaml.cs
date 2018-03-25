@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
-using System.Collections.ObjectModel;
-using System.Windows.Forms;
-using System.Drawing;
-
-using AStores.ViewModel;
-using AStores.Views;
 using AStores.SDLScale.Interface;
-using AStores.SDLScale;
-using AStores.Utilities;
 using AStores.Services;
+using AStores.Utilities;
+using AStores.ViewModel;
+using AStores.SDLScale;
 
 namespace AStores
 {
@@ -24,7 +14,6 @@ namespace AStores
     public partial class App : System.Windows.Application
     {
         ShowSecondScreen _sndScreen = null;
-        ISDLScale sdlScale = null;
 
         private ObservableCollection<ToDoItem> todoLists = new ObservableCollection<ToDoItem>();
 
@@ -39,8 +28,6 @@ namespace AStores
 
             LoadData();
 
-            sdlScale = new ConSDLScale(ParameterManager.Instance.ComPort, ParameterManager.Instance.Baud);
-            StartScale(sdlScale);
         }
 
         private void ShowSndScreen()
@@ -48,12 +35,6 @@ namespace AStores
             _sndScreen = new ShowSecondScreen();
             _sndScreen.ShowIt();
             //throw new NotImplementedException();
-        }
-
-        private void StartScale(ISDLScale scale)
-        {
-            scale.InitScale();
-            throw new NotImplementedException();
         }
 
         public ObservableCollection<ToDoItem> TodoLists

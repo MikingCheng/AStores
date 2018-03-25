@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ApplicationCore.Entities
 {
@@ -17,7 +18,7 @@ namespace ApplicationCore.Entities
     public decimal F_StandardCost { get; set; }
     public string F_ImageUrl1 { get; set; }
 
-    public int CatalogId { get; set; }
+    public Guid CatalogId { get; set; }
     public CatalogType CatalogType { get; set; }
     public List<OrderItem> OrderItems { get; set; }
     public List<ProductChanges> PriceChanges { get; set; }

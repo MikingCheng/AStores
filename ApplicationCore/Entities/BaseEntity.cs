@@ -6,7 +6,7 @@ namespace ApplicationCore.Entities
   // Using non-generic integer types for simplicity and to ease caching logic
   public class BaseEntity
   {
-    public int F_Id { get; set; }
+    public Guid F_Id { get; set; }
 
     public byte[] RowVersion { get; set; }
     public DateTime F_LastModifiedDate { get; set; }

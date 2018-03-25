@@ -24,7 +24,7 @@ namespace AStores.SDLScale
         {
             _comPort = cp;
             _baud = bd;
-            sdlinft = new SdlSX();
+//            sdlinft = new SdlSX();
         }
 
         public void InitScale()

@@ -65,6 +65,10 @@
     </Window.Resources>
 
     <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Initialized">
+            <i:InvokeCommandAction Command="{Binding WindowInitializedCommand}" CommandParameter="{Binding ElementName=Window}"/>
+        </i:EventTrigger>
+
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding WindowLoadCommand}" CommandParameter="{Binding ElementName=Window}"/>
         </i:EventTrigger>

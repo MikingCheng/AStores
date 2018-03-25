@@ -100,11 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\AStoresDBContext.cs" />
-    <Compile Include="Migrations\20180324234634_firstm.cs" />
-    <Compile Include="Migrations\20180324234634_firstm.designer.cs">
-      <DependentUpon>20180324234634_firstm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\AStoresDBContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

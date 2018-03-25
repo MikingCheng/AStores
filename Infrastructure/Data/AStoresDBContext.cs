@@ -19,7 +19,7 @@ namespace Infrastructure.Data
       var optionsBuilder = new DbContextOptionsBuilder<AStoresDBContext>();
             //      optionsBuilder.UseSqlite("Data Source=blog.db");
             //      optionsBuilder.UseSqlServer(@"Server=SUSANYANG\SQLEXPRESS; Initial Catalog = TestDBSecond; Persist Security Info=True;User ID = sa; Password=SPX123!@#");
-            optionsBuilder.UseSqlServer(@"Server=SUSANYANG\SQLEXPRESS; Initial Catalog = TestDBSecond; Trusted_Connection=True; ");
+            optionsBuilder.UseSqlServer(@"Server=SUSANYANG\SQLEXPRESS; Initial Catalog = TestDBFifth; Trusted_Connection=True; ");
 
             return new AStoresDBContext(optionsBuilder.Options);
     }
@@ -46,7 +46,7 @@ namespace Infrastructure.Data
     public DbSet<PaymentMethod> PaymentMethods { get; set; }
     public DbSet<OrderStatus> OrderStatuses { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder builder)
+     protected override void OnModelCreating(ModelBuilder builder)
     {
       builder.Entity<CatalogType>(ConfigureCategoryType);
       builder.Entity<Product>(ConfigureProduct);
@@ -57,16 +57,25 @@ namespace Infrastructure.Data
       builder.Entity<OrderItemStatus>(ConfigureOrderItemStatus);
       builder.Entity<PaymentMethod>(ConfigurePaymentMethod);
       builder.Entity<OrderStatus>(ConfigureOrderStatus);
-    }
+
+            builder.Entity<OrderItem>()
+               .Property(p => p.F_LineTotal)
+               .HasComputedColumnSql("(isnull(([F_Price]*[F_Quantity]),(0.0)))");
+
+            builder.Entity<SalesOrder>()
+               .Property(p => p.F_TotalDue)
+               .HasComputedColumnSql("(isnull(([F_SubTotal]+[F_TaxAmt]),(0.0)))");
+        }
 
 
-    #region configuration
-    private void ConfigureOrderStatus(EntityTypeBuilder<OrderStatus> builder)
+        #region configuration
+        private void ConfigureOrderStatus(EntityTypeBuilder<OrderStatus> builder)
     {
       builder.ToTable("FM_OrderStatus");
       builder.HasKey(c => c.F_Id);
+            builder.Property(o => o.F_Id).ValueGeneratedOnAdd();
 
-      builder.Property(c => c.F_OrderStatus).IsRequired().HasMaxLength(30);
+            builder.Property(c => c.F_OrderStatus).IsRequired().HasMaxLength(30);
 
       builder.Property(c => c.RowVersion).IsRowVersion();
     }
@@ -75,8 +84,9 @@ namespace Infrastructure.Data
     {
       builder.ToTable("FM_Paymentmethods");
       builder.HasKey(c => c.F_Id);
+            builder.Property(o => o.F_Id).ValueGeneratedOnAdd();
 
-      builder.Property(c => c.F_PaymentName).IsRequired().HasMaxLength(30);
+            builder.Property(c => c.F_PaymentName).IsRequired().HasMaxLength(30);
 
       builder.Property(c => c.RowVersion).IsRowVersion();
     }
@@ -85,8 +95,9 @@ namespace Infrastructure.Data
     {
       builder.ToTable("FM_OrderItemsStatus");
       builder.HasKey(c => c.F_Id);
+            builder.Property(o => o.F_Id).ValueGeneratedOnAdd();
 
-      builder.Property(c => c.F_OrderItemStatus).IsRequired().HasMaxLength(30);
+            builder.Property(c => c.F_OrderItemStatus).IsRequired().HasMaxLength(30);
 
       builder.Property(c => c.RowVersion).IsRowVersion();
     }
@@ -95,8 +106,9 @@ namespace Infrastructure.Data
     {
       builder.ToTable("FM_Customer");
       builder.HasKey(c => c.F_Id);
+            builder.Property(o => o.F_Id).ValueGeneratedOnAdd();
 
-      builder.Property(c => c.F_FirstName).IsRequired();
+            builder.Property(c => c.F_FirstName).IsRequired();
       builder.Property(c => c.F_LastName).IsRequired();
       builder.Property(c => c.F_Account).HasMaxLength(50);
       builder.Property(c => c.F_Address).HasMaxLength(100);
@@ -108,8 +120,8 @@ namespace Infrastructure.Data
     {
       builder.ToTable("FM_ProductCarategory");
       builder.HasKey(c => c.F_Id);
+            builder.Property(o => o.F_Id).ValueGeneratedOnAdd();
 
-      builder.Property(c => c.F_Id).IsRequired();
       builder.Property(c => c.F_FullName).IsRequired().HasMaxLength(50);
 
       builder.Property(c => c.RowVersion).IsRowVersion();
@@ -119,8 +131,8 @@ namespace Infrastructure.Data
     {
       builder.ToTable("FM_Products");
       builder.HasKey(p => p.F_Id);
+            builder.Property(o => o.F_Id).ValueGeneratedOnAdd();
 
-      builder.Property(p => p.F_Id).IsRequired();
       builder.Property(p => p.F_FullName).IsRequired().HasMaxLength(50);
       builder.Property(p => p.F_EnCode).HasMaxLength(8).IsRequired();
       builder.Property(p => p.F_ImageUrl1).HasMaxLength(100);
@@ -136,8 +148,9 @@ namespace Infrastructure.Data
     {
       builder.ToTable("FM_ProductChanges");
       builder.HasKey(p => p.F_Id);
+            builder.Property(o => o.F_Id).ValueGeneratedOnAdd();
 
-      builder.Property(p => p.F_NewPrice).IsRequired();
+            builder.Property(p => p.F_NewPrice).IsRequired();
 
       builder.HasOne(p => p.Product)
         .WithMany(p=>p.PriceChanges)
@@ -150,8 +163,11 @@ namespace Infrastructure.Data
     {
       builder.ToTable("FM_SalesOrder");
       builder.HasKey(p => p.F_Id);
+            builder.Property(o => o.F_Id).ValueGeneratedOnAdd();
+            builder.Property(o => o.F_TotalDue).ValueGeneratedOnAddOrUpdate();
 
-      builder.Property(o => o.F_OrderNumber).IsRequired();
+
+            builder.Property(o => o.F_OrderNumber).IsRequired();
       builder.Property(o => o.F_OrderDate).IsRequired();
       builder.Property(o => o.F_SubTotal).IsRequired();
       builder.Property(o => o.F_TotalDue).IsRequired();
@@ -174,8 +190,10 @@ namespace Infrastructure.Data
     {
       builder.ToTable("FM_OrderItem");
       builder.HasKey(p => p.F_Id);
+            builder.Property(o => o.F_Id).ValueGeneratedOnAdd();
+            builder.Property(o => o.F_LineTotal).ValueGeneratedOnAddOrUpdate();
 
-      builder.Property(o => o.F_Price).IsRequired();
+            builder.Property(o => o.F_Price).IsRequired();
       builder.Property(o => o.F_Quantity).IsRequired();
 
       builder.HasOne(o => o.F_OrderItemStatus)
