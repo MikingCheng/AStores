@@ -41,16 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\BaseEntity.cs" />
-    <Compile Include="Entities\CategoryType.cs" />
+    <Compile Include="Entities\CatalogType.cs" />
     <Compile Include="Entities\Customer.cs" />
-    <Compile Include="Entities\LocalCatalogType.cs" />
     <Compile Include="Entities\OrderItem.cs" />
     <Compile Include="Entities\OrderItemStatus.cs" />
+    <Compile Include="Entities\OrderStatus.cs" />
     <Compile Include="Entities\PayMethod.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductChanges.cs" />
     <Compile Include="Entities\SalesOrder.cs" />
-    <Compile Include="Entities\UnitType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

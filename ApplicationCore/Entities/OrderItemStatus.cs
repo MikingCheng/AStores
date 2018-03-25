@@ -8,6 +8,7 @@ namespace ApplicationCore.Entities
 {
     public class OrderItemStatus: BaseEntity
     {
-        public string  F_OrderStatus { get; set; }
-    }
+        public string  F_OrderItemStatus { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
+  }
 }

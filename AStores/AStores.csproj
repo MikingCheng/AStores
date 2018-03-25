@@ -37,6 +37,9 @@
     <Reference Include="Microsoft.EntityFrameworkCore, Version=2.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.0.2\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Design, Version=2.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Design.2.0.2\lib\net461\Microsoft.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=2.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.2.0.2\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
     </Reference>
@@ -220,6 +223,14 @@
     <Resource Include="images\dabaicai.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApplicationCore\ApplicationCore.csproj">
+      <Project>{00ebc9d2-2c2f-46c1-b872-51dae89129ad}</Project>
+      <Name>ApplicationCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{eaeaf2ff-78f7-4651-ac84-41e49f4ca02c}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SDLScale\SDLScale.csproj">
       <Project>{8aececff-260b-4700-919e-7991c92c29b6}</Project>
       <Name>SDLScale</Name>

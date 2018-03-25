@@ -6,27 +6,30 @@ namespace ApplicationCore.Entities
 {
   public class SalesOrder:BaseEntity
   {
-    List<FM_OrderItem> _items;
+    List<OrderItem> _items;
     public SalesOrder()
     {
-      _items = new List<FM_OrderItem>();
+      _items = new List<OrderItem>();
     }
 
     public string F_OrderNumber { get; set; }
     public DateTime F_OrderDate { get; set; }
-        public DateTime F_PayDate { get; set; }
+    public DateTime F_PayDate { get; set; }
     public decimal F_SubTotal { get; set; }
     public decimal F_TaxAmt { get; set; } = 0;
     public decimal F_TotalDue { get; set; }
-        public RefundStatus F_RefundStatus { get; set; }
 
-    public IReadOnlyList<FM_OrderItem> OrderItems => _items.AsReadOnly();
+    public int CustomerId { get; set; } = 0;
+    public Customer Customer { get; set; }
 
-    public int F_PaymentTypeId { get; set; }
-    public int F_OderStatusId { get; set; }
-    public int BuyerId { get; set; } = 0;
+    public int PaymentMethodId { get; set; }
+    public PaymentMethod PaymentMethod { get; set; }
 
-    public void AddOrderItem(FM_OrderItem item )
+    public int OrderStatusId { get; set; }
+    public OrderStatus OrderStatus { get; set; }
+
+    public IReadOnlyList<OrderItem> OrderItems => _items.AsReadOnly();
+    public void AddOrderItem(OrderItem item )
     {
       if(!_items.Any(i=>i.F_ProductId == item.F_ProductId))
       {
@@ -39,10 +42,4 @@ namespace ApplicationCore.Entities
   }
 
 
-  public enum RefundStatus
-    {
-    Active,
-    Unpayed,
-    Deleted,
-  }
 }

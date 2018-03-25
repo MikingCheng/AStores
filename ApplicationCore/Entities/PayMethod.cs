@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.Entities
 {
-    public class F_PaymentMethod
-    {
-        public string F_PaymentName { get; set; }
-    }
+  public class PaymentMethod : BaseEntity
+  {
+    public string F_PaymentName { get; set; }
+    public List<SalesOrder> SalesOrders { get; set; }
+  }
 }
