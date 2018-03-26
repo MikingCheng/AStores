@@ -20,6 +20,8 @@ namespace AStores.ViewModel
         ISDLScale sdlScale = null;
 
         private decimal _weight;
+        private string _connectedString;
+
         public string Weight
         {
             get { return string.Format("{0:#.##}", _weight); }
@@ -30,14 +32,24 @@ namespace AStores.ViewModel
             }
         }
 
+        public string Connected
+        {
+            get { return _connectedString; }
+            set
+            {
+                _connectedString = value;
+                this.OnPropertyChanged("Connected");
+            }
+        }
+
         public  void HandleTimer(Object source, ElapsedEventArgs e)
         {
-            if  (ParameterManager.Instance.DemoScale == "Y")
+            if (ParameterManager.Instance.DemoScale == "Y")
             {
                 Weight = (System.Convert.ToDecimal(Weight) + 0.53m).ToString();
             }
             else
-                Weight = sdlScale?.Weight.ToString();
+               Weight = (sdlScale==null ? 0.0m : sdlScale.Weight).ToString();
         }
 
         public ICommand WindowLoadCommand
@@ -61,7 +73,12 @@ namespace AStores.ViewModel
             {
                 _weight = 17.0854m;
                 sdlScale = new ConSDLScale(ParameterManager.Instance.ComPort, ParameterManager.Instance.Baud);
-                sdlScale.InitScale();
+ //               sdlScale.InitScale();
+                if (sdlScale.InitScale())
+                    Connected = "Connected";
+                else
+                    Connected = "Not Connect";
+
                 return new RelayCommand(
                   param =>
                   {
@@ -70,6 +87,21 @@ namespace AStores.ViewModel
                );
             }
         }
+
+        public ICommand WindowClosedCommand
+        {
+            get
+            {
+                return new RelayCommand(
+                  param =>
+                  {
+                      sdlScale.Close();
+                  },
+                  null
+               );
+            }
+        }
+        
 
     }
 }

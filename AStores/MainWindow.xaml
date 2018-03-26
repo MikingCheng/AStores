@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:AStores.ViewModel"
         mc:Ignorable="d" 
         WindowState="Maximized" 
-        WindowStyle="None"
+        WindowStyle="None" Closed="Window_Closed"
         Title="MainWindow" >
         <!--Width="1024" Height="768"-->
     <Window.DataContext>
@@ -80,6 +80,10 @@
             <i:InvokeCommandAction Command="{Binding WindowActivatedCommand}" CommandParameter="{Binding ElementName=Window}"/>
         </i:EventTrigger>
 
+        <i:EventTrigger EventName="Closed">
+            <i:InvokeCommandAction Command="{Binding WindowClosedCommand}" CommandParameter="{Binding ElementName=Window}"/>
+        </i:EventTrigger>
+
     </i:Interaction.Triggers>
 
 
@@ -98,10 +102,11 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Margin="25, 5" >
                 <Label Style="{StaticResource weightSmall}">菜名</Label>
-                <TextBlock Style="{StaticResource weightBig}" Text="大白菜"></TextBlock>
+                <TextBlock Name="CoMM" Style="{StaticResource weightBig}" Text="大白菜"></TextBlock>
             </Grid>
             <Grid Grid.Column="1" Margin="25, 5">
                 <Label Style="{StaticResource weightSmall}">重量/Kg</Label>
+                <!--<TextBlock Style="{StaticResource weightBig}" Name="Weigh"  ></TextBlock>-->
                 <TextBlock Style="{StaticResource weightBig}" Text="{Binding Path=Weight }"  ></TextBlock>
             </Grid>
             <Grid Grid.Column="2" Margin="25, 5">
@@ -126,9 +131,9 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <StackPanel Orientation="Horizontal" >
-                        <Button Content="去  皮" Style="{StaticResource regularButton}" Click="Button_Click_1"></Button>
-                        <Button Content="流  水" Style="{StaticResource regularButton}"></Button>
-                        <Button Content="补  打" Style="{StaticResource regularButton}" ></Button>
+                        <Button Content="初始化皮重" Style="{StaticResource regularButton}" Click="Button_Click_1"></Button>
+                        <Button Content="开始读取" Style="{StaticResource regularButton}" Click="Button_Click_2"></Button>
+                        <Button Content="循环读取重量" Style="{StaticResource regularButton}" Click="Button_Click_3"></Button>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="1">
@@ -243,6 +248,8 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Column="1">
                 <TextBlock Style="{StaticResource regularText}" VerticalAlignment="Center" Margin="20, 0">摊位号：15-80</TextBlock>
                 <TextBlock Style="{StaticResource regularText}" VerticalAlignment="Center" Margin="20, 0">店主：何先生</TextBlock>
+                <Label VerticalAlignment="Center">电子秤连接：</Label>
+                <TextBlock  Style="{StaticResource regularText}" VerticalAlignment="Center" Text="{Binding Path=Connected }" Width="120"></TextBlock>
             </StackPanel>
 
         </Grid>

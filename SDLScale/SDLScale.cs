@@ -12,9 +12,6 @@ namespace AStores.SDLScale
     {
         string _comPort;
         int _baud;
-        decimal _weight;
-        string _unit;
-        decimal _tare;
         string _errorMessage = string.Empty;
 
         ISdlinterface sdlinft = null;
@@ -27,20 +24,22 @@ namespace AStores.SDLScale
 //            sdlinft = new SdlSX();
         }
 
-        public void InitScale()
+        public bool InitScale()
         {
-
+            bool result = false;
             if (sdlinft == null)
             {
                 sdlinft = new SdlSX();
-                sdlinft.Open(_comPort, _baud);
-            }
+                result = sdlinft.Open(_comPort, _baud);
+            } 
             else
             {
                 sdlinft.Close();
                 sdlinft = new SdlSX();
-                sdlinft.Open(_comPort, _baud);
+                result = sdlinft.Open(_comPort, _baud);
             }
+
+            return result;
         }
 
         public bool ReadWeight()
@@ -69,18 +68,18 @@ namespace AStores.SDLScale
         {
             get
             {
-                return _weight;
+                return sdlinft.Weight;
             }
         }
 
         public string Unit
         {
-            get { return _unit; }
+            get { return sdlinft.Unit; }
         }
 
         public decimal Tare
         {
-            get { return _tare; }
+            get { return sdlinft.Tare; }
         }
 
         public string ErrorMessage
@@ -93,6 +92,11 @@ namespace AStores.SDLScale
 
                 return _errorMessage;
             }
+        }
+
+        public void Close()
+        {
+            sdlinft.Close();
         }
     }
 }

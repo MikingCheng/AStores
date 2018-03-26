@@ -7,7 +7,7 @@ namespace AStores.SDLScale.Interface
 {
     public interface ISDLScale
     {
-        void InitScale();
+        bool InitScale();
         bool ReadWeight();
         bool Reset();
         bool SetTare();
@@ -17,5 +17,7 @@ namespace AStores.SDLScale.Interface
         decimal Tare { get; }
 
         string ErrorMessage { get; }
+
+        void Close();
     }
 }
