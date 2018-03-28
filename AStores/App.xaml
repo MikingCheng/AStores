@@ -5,6 +5,20 @@
              Startup="Application_Startup">
     <!--StartupUri="MainWindow.xaml">-->
     <Application.Resources>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Background" Value="#FFDCDCDC" />
+            <Setter Property="BorderBrush" Value="LightGray" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+            <!--<Setter Property="FontFamily" Value="pack://application:,,,/fonts/#xxx Clear"></Setter>-->
+            <Setter Property="Foreground" Value="#001932"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Padding" Value="2"/>
+        </Style>
+
+
         <Style x:Key="titleBackground" TargetType="Grid">
             <Setter Property="Background" Value="CornflowerBlue" />
         </Style>
@@ -60,25 +74,6 @@
             </Style.Triggers>
         </Style>
 
-
-        <Style TargetType="DataGridColumnHeader">
-            <Setter Property="Background" Value="LightBlue">
-                <!--<Setter.Value>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                    <GradientStop Color="White" Offset="0"/>
-                                    <GradientStop Color="#BFBFBF" Offset="1"/>
-                                    <GradientStop Color="White" Offset="1"/>
-                                </LinearGradientBrush>
-
-                            </Setter.Value>-->
-            </Setter>
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="Margin" Value="0,1,0,10"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Margin" Value="1"/>
-        </Style>
-
         <DataTemplate DataType="{x:Type local:ToDoItem}">
             <Border BorderThickness="2" BorderBrush="Red" Padding="7" Name="border" Margin="3" HorizontalAlignment="Stretch" >
                 <Grid>
@@ -95,5 +90,19 @@
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Background" Value="#FFE6E6E6"/>
         </Style>
+
+        <Geometry x:Key="SVGEdit">M438.931 30.403c-40.4-40.5-106.1-40.5-146.5 0l-268.6 268.5c-2.1 2.1-3.4 4.8-3.8 7.7l-19.9 147.4c-0.6 4.2 0.9 8.4 3.8 11.3c2.5 2.5 6 4 9.5 4c0.6 0 1.2 0 1.8-0.1l88.8-12c7.4-1 12.6-7.8 11.6-15.2c-1-7.4-7.8-12.6-15.2-11.6   l-71.2 9.6l13.9-102.8l108.2 108.2c2.5 2.5 6 4 9.5 4s7-1.4 9.5-4l268.6-268.5c19.6-19.6 30.4-45.6 30.4-73.3   S458.531 49.903 438.931 30.403z M297.631 63.403l45.1 45.1l-245.1 245.1l-45.1-45.1L297.631 63.403z M160.931 416.803l-44.1-44.1   l245.1-245.1l44.1 44.1L160.931 416.803z M424.831 152.403l-107.9-107.9c13.7-11.3 30.8-17.5 48.8-17.5c20.5 0 39.7 8 54.2 22.4   s22.4 33.7 22.4 54.2C442.331 121.703 436.131 138.703 424.831 152.403z</Geometry>
+        <Geometry x:Key="SVGPrevous">M429.4 255.033c-35.4-43.1-102.1-94.4-219.7-98.8v-79.8c0-4.7-2.7-9.1-7-11.1s-9.4-1.4-13 1.6L4.5 219.633c-2.8 2.3-4.5 5.8-4.5 9.4c0 3.7 1.6 7.1 4.4 9.4l185.2 153.3c3.7 3 8.7 3.7 13 1.6c4.3-2 7-6.3 7-11.1v-79.5c76.8 0.3 194.2 6 256.5 115.9c2.2 3.9 6.3 6.2 10.7 6.2c1 0 2.1-0.1 3.1-0.4c5.4-1.4 9.1-6.3 9.1-11.8C489.1 371.533 473.4 308.633 429.4 255.033z M197.4 278.233L197.4 278.233c-3.3 0-6.4 1.3-8.7 3.6s-3.6 5.4-3.6 8.7v65.7l-153.5-127.1l153.6-126.7v65.7c0 6.7 5.4 12.2 12.1 12.3c176 1.7 241.6 109 260.7 184.4C382.2 278.333 268.7 278.233 197.4 278.233z</Geometry>
+
+        <Geometry x:Key="Menu1">M140.35 32c0-17.6-14.4-32-32-32h-76.3c-17.6 0-32 14.4-32 32v76.2c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32V32    H140.35z M115.85 108.3c0 4.1-3.4 7.5-7.5 7.5h-76.3c-4.1 0-7.5-3.4-7.5-7.5V32c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5    v76.3H115.85z</Geometry>
+        <Geometry x:Key="Menu2">M140.35 205.3c0-17.6-14.4-32-32-32h-76.3c-17.6 0-32 14.4-32 32v76.2c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32    v-76.2H140.35z M115.85 281.5c0 4.1-3.4 7.5-7.5 7.5h-76.3c-4.1 0-7.5-3.4-7.5-7.5v-76.2c0-4.1 3.4-7.5 7.5-7.5h76.2    c4.1 0 7.5 3.4 7.5 7.5v76.2H115.85z</Geometry>
+        <Geometry x:Key="Menu3">M108.35 346.5h-76.3c-17.6 0-32 14.4-32 32v76.2c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32v-76.2    C140.35 360.9 125.95 346.5 108.35 346.5z M115.85 454.8c0 4.1-3.4 7.5-7.5 7.5h-76.3c-4.1 0-7.5-3.4-7.5-7.5v-76.2    c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2H115.85z</Geometry>
+        <Geometry x:Key="Menu4">M173.35 281.5c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32v-76.2c0-17.6-14.4-32-32-32h-76.2c-17.6 0-32 14.4-32 32    L173.35 281.5L173.35 281.5z M197.85 205.3c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2c0 4.1-3.4 7.5-7.5 7.5h-76.2    c-4.1 0-7.5-3.4-7.5-7.5L197.85 205.3L197.85 205.3z</Geometry>
+        <Geometry x:Key="Menu5">M173.35 454.8c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32v-76.2c0-17.6-14.4-32-32-32h-76.2c-17.6 0-32 14.4-32 32    L173.35 454.8L173.35 454.8z M197.85 378.5c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2c0 4.1-3.4 7.5-7.5 7.5h-76.2    c-4.1 0-7.5-3.4-7.5-7.5L197.85 378.5L197.85 378.5z</Geometry>
+        <Geometry x:Key="Menu6">M346.55 281.5c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32v-76.2c0-17.6-14.4-32-32-32h-76.2c-17.6 0-32 14.4-32 32    L346.55 281.5L346.55 281.5z M371.05 205.3c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2c0 4.1-3.4 7.5-7.5 7.5h-76.2    c-4.1 0-7.5-3.4-7.5-7.5L371.05 205.3L371.05 205.3z</Geometry>
+        <Geometry x:Key="Menu7">M346.55 454.8c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32v-76.2c0-17.6-14.4-32-32-32h-76.2c-17.6 0-32 14.4-32 32    L346.55 454.8L346.55 454.8z M371.05 378.5c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2c0 4.1-3.4 7.5-7.5 7.5h-76.2    c-4.1 0-7.5-3.4-7.5-7.5L371.05 378.5L371.05 378.5z</Geometry>
+        <Geometry x:Key="Menu8">M173.35 32v76.2c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32V32c0-17.6-14.4-32-32-32h-76.2    C187.65 0 173.35 14.4 173.35 32z M197.85 32c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2c0 4.1-3.4 7.5-7.5 7.5h-76.2    c-4.1 0-7.5-3.4-7.5-7.5L197.85 32L197.85 32z</Geometry>
+        <Geometry x:Key="Menu9">M378.55 140.3h76.2c17.6 0 32-14.4 32-32V32c0-17.6-14.4-32-32-32h-76.2c-17.6 0-32 14.4-32 32v76.2    C346.55 125.9 360.95 140.3 378.55 140.3z M371.05 32c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2    c0 4.1-3.4 7.5-7.5 7.5h-76.2c-4.1 0-7.5-3.4-7.5-7.5L371.05 32L371.05 32z</Geometry>
+
     </Application.Resources>
 </Application>

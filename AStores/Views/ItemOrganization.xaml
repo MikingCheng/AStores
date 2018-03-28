@@ -14,22 +14,29 @@
             <Setter Property="Background" Value="LightGray"/>
         </Style>
     </Window.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Style="{StaticResource titleBackground}">
-            <Button FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" HorizontalAlignment="Left" VerticalAlignment="Top" 
+            <!--<Button FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" HorizontalAlignment="Left" VerticalAlignment="Top" 
                             Style="{StaticResource regularButton}" Width="50" Background="Transparent" Click="Button_Click">
 
+            </Button>-->
+            <Button BorderThickness="0"  Click="Button_Click" Width="50" HorizontalAlignment="Left" Background="Transparent" VerticalAlignment="Top"   >
+                <Grid>
+                    <Path Data="{StaticResource SVGPrevous}" Stretch="Uniform" Fill="Black"  Width="40" Height="40" RenderTransformOrigin="0.5,0.5">
+                    </Path>
+                </Grid>
             </Button>
+
             <TextBlock Style="{StaticResource titleText}">菜品组织</TextBlock>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1"  Margin="5">
             <StackPanel Name="sp" Orientation="Horizontal" >
                 <Button Style="{StaticResource regularButton}" Content="海  鲜"></Button>
                 <Button Style="{StaticResource regularButton}" Content="青  菜"></Button>
@@ -47,103 +54,91 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Style="{StaticResource SubGrid}" >
                 <DataGrid ScrollViewer.VerticalScrollBarVisibility="Hidden" Name="orderCheckGrid" 
-                                            ItemsSource="{Binding CheckModelList, UpdateSourceTrigger=PropertyChanged}" 
-                                            AutoGenerateColumns="False" ColumnHeaderHeight="30"  SelectionMode="Single" 
-                                            CanUserSortColumns="False" CanUserReorderColumns="True" CanUserResizeColumns="False" 
-                                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" 
-                                            GridLinesVisibility="None" HeadersVisibility="Column" CanUserResizeRows="False" 
-                                            Background="White" CanUserAddRows="False" Focusable="False" BorderThickness="0" 
-                                            Margin="2,1,1,1" IsReadOnly="True" FontFamily="Gill Sans MT">
+                                              ItemsSource="{Binding Products}" 
+                                              AutoGenerateColumns="False" ColumnHeaderHeight="38"  SelectionMode="Single" 
+                                              CanUserSortColumns="False" CanUserReorderColumns="True" CanUserResizeColumns="False" 
+                                              VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" 
+                                              GridLinesVisibility="None" HeadersVisibility="Column" CanUserResizeRows="False" 
+                                              Background="White" CanUserAddRows="False" Focusable="False" BorderThickness="0" 
+                                              Margin="5" IsReadOnly="True" AlternatingRowBackground="#FFE6E6E6" AlternationCount="2">
                     <!--<i:Interaction.Triggers>
-                <i:EventTrigger EventName="PreviewMouseUp">
-                    <i:InvokeCommandAction Command="{Binding OrderCheckMouseUpCommand}" CommandParameter="{Binding ElementName=orderCheckGrid}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>-->
+                    <i:EventTrigger EventName="PreviewMouseUp">
+                        <i:InvokeCommandAction Command="{Binding OrderCheckMouseUpCommand}" CommandParameter="{Binding ElementName=orderCheckGrid}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
 
                     <!--<DataGrid.CellStyle>
-                <Style TargetType="DataGridCell">
-                    <Setter Property="BorderThickness" Value="0"/>
-                    <Setter Property="FontSize" Value="14"/>
-                </Style>
-            </DataGrid.CellStyle>-->
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="FontSize" Value="14"/>
+                    </Style>
+                </DataGrid.CellStyle>-->
 
                     <!--<DataGrid.ColumnHeaderStyle>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="Background" Value="LightBlue">
-                        -->
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="LightBlue">
+                            -->
                     <!--<Setter.Value>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="White" Offset="0"/>
-                                <GradientStop Color="#BFBFBF" Offset="1"/>
-                                <GradientStop Color="White" Offset="1"/>
-                            </LinearGradientBrush>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Color="White" Offset="0"/>
+                                    <GradientStop Color="#BFBFBF" Offset="1"/>
+                                    <GradientStop Color="White" Offset="1"/>
+                                </LinearGradientBrush>
 
-                        </Setter.Value>-->
+                            </Setter.Value>-->
                     <!--
-                    </Setter>
-                    <Setter Property="HorizontalContentAlignment" Value="Center" />
-                    <Setter Property="Foreground" Value="Black"/>
-                    <Setter Property="Margin" Value="0,1,0,10"/>
-                    <Setter Property="FontSize" Value="14"/>
-                    <Setter Property="Margin" Value="1"/>
-                </Style>-->
+                        </Setter>
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="Margin" Value="0,1,0,10"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="Margin" Value="1"/>
+                    </Style>-->
                     <!--</DataGrid.ColumnHeaderStyle>-->
 
                     <DataGrid.Columns>
-
-                        <DataGridTemplateColumn Header="Time"  x:Name="timeColumn" Width="120" IsReadOnly="True" CanUserSort="True" 
-                                        SortMemberPath="Time">
+                        <DataGridTemplateColumn Header="序号" x:Name="timeColumn" Width="60" IsReadOnly="True" CanUserSort="True" 
+                                            SortMemberPath="Time" >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding Path=Time}" />
+                                        <TextBlock Text="{Binding Path=Id}" FontSize="16" Margin="5"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Check" Width="120" x:Name="checkColumn" IsReadOnly="True" CanUserSort="True" SortMemberPath="Check">
+                        <DataGridTemplateColumn Header="商品名称" Width="120" x:Name="checkColumn" IsReadOnly="True" CanUserSort="True" SortMemberPath="Check">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding Path=Check}" />
+                                        <TextBlock Text="{Binding Path=F_FullName}" FontSize="16" />
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Payment Type" x:Name="paymentTypeColumn"  Width="2*" IsReadOnly="True" CanUserSort="True" SortMemberPath="PaymentType">
+                        <DataGridTemplateColumn Header="商品编号" x:Name="paymentTypeColumn"  Width="100" IsReadOnly="True" CanUserSort="True" SortMemberPath="PaymentType">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                        <TextBlock Text="{Binding Path=PaymentType}" />
+                                        <TextBlock Text="{Binding Path=F_EnCode}" FontSize="16" />
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTemplateColumn Header="Amount" Width="100" x:Name="amountColumn" IsReadOnly="True" CanUserSort="True" SortMemberPath="Amount">
+                        <DataGridTemplateColumn Header="销售价格" Width="100"  x:Name="voidedColumn" IsReadOnly="True" CanUserSort="True" SortMemberPath="VoidedChar">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                        <!--<TextBlock Text="{Binding Path=Amount, Converter={StaticResource DecimalToCurrenceyConverter}}" />-->
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-
-                        <DataGridTemplateColumn Header="Voided" Width="*" x:Name="voidedColumn" IsReadOnly="True" CanUserSort="True" SortMemberPath="VoidedChar">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                        <TextBlock Foreground="Red" FontWeight="Bold" Text="{Binding Path=VoidedChar}" />
+                                        <TextBlock Text="{Binding Path=F_SalePrice}" FontSize="16" Margin="5"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-
             </Grid>
             <Grid Grid.Column="1">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -155,12 +150,12 @@
                     </Button>
                 </StackPanel>
             </Grid>
-            <Grid Grid.Column="2">
+            <Grid Grid.Column="2" Style="{StaticResource SubGrid}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="160"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0" Margin="5" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="40"></RowDefinition>
@@ -177,7 +172,7 @@
                     <TextBlock Grid.Row="1" Grid.Column="0"  Style="{StaticResource regularTextBlockRight}">产品名称：</TextBlock>
                     <TextBlock Grid.Row="1" Grid.Column="1"  Style="{StaticResource regularTextBlockLeft}">Apple</TextBlock>
 
-                    <TextBlock Grid.Row="2" Grid.Column="0"  Style="{StaticResource regularTextBlockRight}">原 价 格：</TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="0"  Style="{StaticResource regularTextBlockRight}">销售价格：</TextBlock>
                     <TextBlock Grid.Row="2" Grid.Column="1"  Style="{StaticResource regularTextBlockLeft}" Foreground="Black">
                 2.50</TextBlock>
 
@@ -188,96 +183,85 @@
                 </Grid>
                 <Grid Grid.Row="1">
                     <DataGrid ScrollViewer.VerticalScrollBarVisibility="Hidden" Name="orderCheckGrid1" 
-                                            ItemsSource="{Binding CheckModelList, UpdateSourceTrigger=PropertyChanged}" 
-                                            AutoGenerateColumns="False" ColumnHeaderHeight="30"  SelectionMode="Single" 
-                                            CanUserSortColumns="False" CanUserReorderColumns="True" CanUserResizeColumns="False" 
-                                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" 
-                                            GridLinesVisibility="None" HeadersVisibility="Column" CanUserResizeRows="False" 
-                                            Background="White" CanUserAddRows="False" Focusable="False" BorderThickness="0" 
-                                            Margin="2,1,1,1" IsReadOnly="True" FontFamily="Gill Sans MT">
+                                              ItemsSource="{Binding Products}" 
+                                              AutoGenerateColumns="False" ColumnHeaderHeight="38"  SelectionMode="Single" 
+                                              CanUserSortColumns="False" CanUserReorderColumns="True" CanUserResizeColumns="False" 
+                                              VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" 
+                                              GridLinesVisibility="None" HeadersVisibility="Column" CanUserResizeRows="False" 
+                                              Background="White" CanUserAddRows="False" Focusable="False" BorderThickness="0" 
+                                              Margin="5" IsReadOnly="True" AlternatingRowBackground="#FFE6E6E6" AlternationCount="2">
                         <!--<i:Interaction.Triggers>
-                <i:EventTrigger EventName="PreviewMouseUp">
-                    <i:InvokeCommandAction Command="{Binding OrderCheckMouseUpCommand}" CommandParameter="{Binding ElementName=orderCheckGrid}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>-->
+                    <i:EventTrigger EventName="PreviewMouseUp">
+                        <i:InvokeCommandAction Command="{Binding OrderCheckMouseUpCommand}" CommandParameter="{Binding ElementName=orderCheckGrid}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
 
                         <!--<DataGrid.CellStyle>
-                <Style TargetType="DataGridCell">
-                    <Setter Property="BorderThickness" Value="0"/>
-                    <Setter Property="FontSize" Value="14"/>
-                </Style>
-            </DataGrid.CellStyle>-->
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="FontSize" Value="14"/>
+                    </Style>
+                </DataGrid.CellStyle>-->
 
                         <!--<DataGrid.ColumnHeaderStyle>
-                <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="Background" Value="LightBlue">
-                        -->
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="LightBlue">
+                            -->
                         <!--<Setter.Value>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                <GradientStop Color="White" Offset="0"/>
-                                <GradientStop Color="#BFBFBF" Offset="1"/>
-                                <GradientStop Color="White" Offset="1"/>
-                            </LinearGradientBrush>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Color="White" Offset="0"/>
+                                    <GradientStop Color="#BFBFBF" Offset="1"/>
+                                    <GradientStop Color="White" Offset="1"/>
+                                </LinearGradientBrush>
 
-                        </Setter.Value>-->
+                            </Setter.Value>-->
                         <!--
-                    </Setter>
-                    <Setter Property="HorizontalContentAlignment" Value="Center" />
-                    <Setter Property="Foreground" Value="Black"/>
-                    <Setter Property="Margin" Value="0,1,0,10"/>
-                    <Setter Property="FontSize" Value="14"/>
-                    <Setter Property="Margin" Value="1"/>
-                </Style>-->
+                        </Setter>
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="Margin" Value="0,1,0,10"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="Margin" Value="1"/>
+                    </Style>-->
                         <!--</DataGrid.ColumnHeaderStyle>-->
 
                         <DataGrid.Columns>
-
-                            <DataGridTemplateColumn Header="Time"  x:Name="timeColumn1" Width="120" IsReadOnly="True" CanUserSort="True" 
-                                        SortMemberPath="Time">
+                            <DataGridTemplateColumn Header="序号" x:Name="timeColumn1" Width="60" IsReadOnly="True" CanUserSort="True" 
+                                            SortMemberPath="Time" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                            <TextBlock Text="{Binding Path=Time}" />
+                                            <TextBlock Text="{Binding Path=Id}" FontSize="16" Margin="5"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <DataGridTemplateColumn Header="Check" Width="120" x:Name="checkColumn1" IsReadOnly="True" CanUserSort="True" SortMemberPath="Check">
+                            <DataGridTemplateColumn Header="商品名称" Width="120" x:Name="checkColumn1" IsReadOnly="True" CanUserSort="True" SortMemberPath="Check">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                            <TextBlock Text="{Binding Path=Check}" />
+                                            <TextBlock Text="{Binding Path=F_FullName}" FontSize="16" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <DataGridTemplateColumn Header="Payment Type" x:Name="paymentTypeColumn1"  Width="2*" IsReadOnly="True" CanUserSort="True" SortMemberPath="PaymentType">
+                            <DataGridTemplateColumn Header="商品编号" x:Name="paymentTypeColumn1"  Width="100" IsReadOnly="True" CanUserSort="True" SortMemberPath="PaymentType">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                            <TextBlock Text="{Binding Path=PaymentType}" />
+                                            <TextBlock Text="{Binding Path=F_EnCode}" FontSize="16" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <DataGridTemplateColumn Header="Amount" Width="100" x:Name="amountColumn1" IsReadOnly="True" CanUserSort="True" SortMemberPath="Amount">
+                            <DataGridTemplateColumn Header="销售价格" Width="100"  x:Name="voidedColumn1" IsReadOnly="True" CanUserSort="True" SortMemberPath="VoidedChar">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                            <!--<TextBlock Text="{Binding Path=Amount, Converter={StaticResource DecimalToCurrenceyConverter}}" />-->
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-
-                            <DataGridTemplateColumn Header="Voided" Width="*" x:Name="voidedColumn1" IsReadOnly="True" CanUserSort="True" SortMemberPath="VoidedChar">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                            <TextBlock Foreground="Red" FontWeight="Bold" Text="{Binding Path=VoidedChar}" />
+                                            <TextBlock Text="{Binding Path=F_SalePrice}" FontSize="16" Margin="5"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>

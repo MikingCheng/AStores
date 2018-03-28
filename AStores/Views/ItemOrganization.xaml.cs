@@ -22,6 +22,7 @@ namespace AStores.Views
         public ItemOrganization()
         {
             InitializeComponent();
+            DataContext = new AStores.ViewModel.PriceManagementViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

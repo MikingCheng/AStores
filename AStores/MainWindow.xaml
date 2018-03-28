@@ -131,9 +131,9 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <StackPanel Orientation="Horizontal" >
-                        <Button Content="初始化皮重" Style="{StaticResource regularButton}" Click="Button_Click_1"></Button>
-                        <Button Content="开始读取" Style="{StaticResource regularButton}" Click="Button_Click_2"></Button>
-                        <Button Content="循环读取重量" Style="{StaticResource regularButton}" Click="Button_Click_3"></Button>
+                        <Button Content="写数据库测试" Style="{StaticResource regularButton}" Click="Button_Click_1"></Button>
+                        <Button Content="流 水" Style="{StaticResource regularButton}" Click="Button_Click_2"></Button>
+                        <Button Content="去 皮" Style="{StaticResource regularButton}" Click="Button_Click_3"></Button>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="1">
@@ -201,14 +201,129 @@
                 <ColumnDefinition Width="139*"/>
                 <ColumnDefinition Width="369*"/>
             </Grid.ColumnDefinitions>
-            <Button FontFamily="Segoe MDL2 Assets" Height="36" Width="36" Content="&#xE700;" FontSize="24" 
-                        BorderThickness="0" Click="Button_Click" Background="Transparent" HorizontalAlignment="Left" Margin="5,2">
+
+            <Button BorderThickness="0"  Click="Button_Click" Width="30" Height="30" HorizontalAlignment="Left" Background="Transparent" VerticalAlignment="Top" Margin="5, 5" >
+                <Grid>
+                    <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+                        <Canvas Name="Capa_2" Canvas.Left="0" Canvas.Top="0" Width="486.8" Height="486.8">
+                            <Canvas.RenderTransform>
+                                <TranslateTransform X="0" Y="0"/>
+                            </Canvas.RenderTransform>
+                            <Canvas.Resources/>
+                            <!--Unknown tag: metadata-->
+                            <!--Unknown tag: sodipodi:namedview-->
+                            <Canvas Name="g4038">
+                                <Canvas Name="g4036">
+                                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4018" Fill="#000000">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M140.35 32c0-17.6-14.4-32-32-32h-76.3c-17.6 0-32 14.4-32 32v76.2c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32V32    H140.35z M115.85 108.3c0 4.1-3.4 7.5-7.5 7.5h-76.3c-4.1 0-7.5-3.4-7.5-7.5V32c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5    v76.3H115.85z" FillRule="NonZero"/>
+                                        </Path.Data>
+                                    </Path>
+                                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4020" Fill="#000000">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M140.35 205.3c0-17.6-14.4-32-32-32h-76.3c-17.6 0-32 14.4-32 32v76.2c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32    v-76.2H140.35z M115.85 281.5c0 4.1-3.4 7.5-7.5 7.5h-76.3c-4.1 0-7.5-3.4-7.5-7.5v-76.2c0-4.1 3.4-7.5 7.5-7.5h76.2    c4.1 0 7.5 3.4 7.5 7.5v76.2H115.85z" FillRule="NonZero"/>
+                                        </Path.Data>
+                                    </Path>
+                                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4022" Fill="#000000">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M108.35 346.5h-76.3c-17.6 0-32 14.4-32 32v76.2c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32v-76.2    C140.35 360.9 125.95 346.5 108.35 346.5z M115.85 454.8c0 4.1-3.4 7.5-7.5 7.5h-76.3c-4.1 0-7.5-3.4-7.5-7.5v-76.2    c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2H115.85z" FillRule="NonZero"/>
+                                        </Path.Data>
+                                    </Path>
+                                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4024" Fill="#000000">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M173.35 281.5c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32v-76.2c0-17.6-14.4-32-32-32h-76.2c-17.6 0-32 14.4-32 32    L173.35 281.5L173.35 281.5z M197.85 205.3c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2c0 4.1-3.4 7.5-7.5 7.5h-76.2    c-4.1 0-7.5-3.4-7.5-7.5L197.85 205.3L197.85 205.3z" FillRule="NonZero"/>
+                                        </Path.Data>
+                                    </Path>
+                                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4026" Fill="#000000">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M173.35 454.8c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32v-76.2c0-17.6-14.4-32-32-32h-76.2c-17.6 0-32 14.4-32 32    L173.35 454.8L173.35 454.8z M197.85 378.5c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2c0 4.1-3.4 7.5-7.5 7.5h-76.2    c-4.1 0-7.5-3.4-7.5-7.5L197.85 378.5L197.85 378.5z" FillRule="NonZero"/>
+                                        </Path.Data>
+                                    </Path>
+                                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4028" Fill="#000000">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M346.55 281.5c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32v-76.2c0-17.6-14.4-32-32-32h-76.2c-17.6 0-32 14.4-32 32    L346.55 281.5L346.55 281.5z M371.05 205.3c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2c0 4.1-3.4 7.5-7.5 7.5h-76.2    c-4.1 0-7.5-3.4-7.5-7.5L371.05 205.3L371.05 205.3z" FillRule="NonZero"/>
+                                        </Path.Data>
+                                    </Path>
+                                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4030" Fill="#000000">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M346.55 454.8c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32v-76.2c0-17.6-14.4-32-32-32h-76.2c-17.6 0-32 14.4-32 32    L346.55 454.8L346.55 454.8z M371.05 378.5c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2c0 4.1-3.4 7.5-7.5 7.5h-76.2    c-4.1 0-7.5-3.4-7.5-7.5L371.05 378.5L371.05 378.5z" FillRule="NonZero"/>
+                                        </Path.Data>
+                                    </Path>
+                                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4032" Fill="#000000">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M173.35 32v76.2c0 17.6 14.4 32 32 32h76.2c17.6 0 32-14.4 32-32V32c0-17.6-14.4-32-32-32h-76.2    C187.65 0 173.35 14.4 173.35 32z M197.85 32c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2c0 4.1-3.4 7.5-7.5 7.5h-76.2    c-4.1 0-7.5-3.4-7.5-7.5L197.85 32L197.85 32z" FillRule="NonZero"/>
+                                        </Path.Data>
+                                    </Path>
+                                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4034" Fill="#000000">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M378.55 140.3h76.2c17.6 0 32-14.4 32-32V32c0-17.6-14.4-32-32-32h-76.2c-17.6 0-32 14.4-32 32v76.2    C346.55 125.9 360.95 140.3 378.55 140.3z M371.05 32c0-4.1 3.4-7.5 7.5-7.5h76.2c4.1 0 7.5 3.4 7.5 7.5v76.2    c0 4.1-3.4 7.5-7.5 7.5h-76.2c-4.1 0-7.5-3.4-7.5-7.5L371.05 32L371.05 32z" FillRule="NonZero"/>
+                                        </Path.Data>
+                                    </Path>
+                                </Canvas>
+                            </Canvas>
+                            <Canvas Name="g4040"/>
+                            <Canvas Name="g4042"/>
+                            <Canvas Name="g4044"/>
+                            <Canvas Name="g4046"/>
+                            <Canvas Name="g4048"/>
+                            <Canvas Name="g4050"/>
+                            <Canvas Name="g4052"/>
+                            <Canvas Name="g4054"/>
+                            <Canvas Name="g4056"/>
+                            <Canvas Name="g4058"/>
+                            <Canvas Name="g4060"/>
+                            <Canvas Name="g4062"/>
+                            <Canvas Name="g4064"/>
+                            <Canvas Name="g4066"/>
+                            <Canvas Name="g4068"/>
+                        </Canvas>
+                    </Viewbox>
+                </Grid>
+
                 <Button.ContextMenu>
                     <ContextMenu BorderThickness="0">
                         <MenuItem Header="菜单下载" FontSize="16" Height="40" Margin="2" Click="DownloadProduct_Click">
                             <MenuItem.Icon>
-                                <Image Source="images/cloud-computing.png"></Image>
-                                <!--<TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xE896;"></TextBlock>-->
+                                <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform">
+                                    <Canvas Name="Capa_1" Canvas.Left="0" Canvas.Top="0" Width="489.3" Height="489.3">
+                                        <Canvas.RenderTransform>
+                                            <TranslateTransform X="0" Y="0"/>
+                                        </Canvas.RenderTransform>
+                                        <Canvas.Resources/>
+                                        <!--Unknown tag: metadata-->
+                                        <!--Unknown tag: sodipodi:namedview-->
+                                        <Canvas Name="g4218">
+                                            <Canvas Name="g4216">
+                                                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4212" Fill="#000000">
+                                                    <Path.Data>
+                                                        <PathGeometry Figures="M244.65 0c-6.8 0-12.2 5.5-12.2 12.3V342l-55.9-55.9c-4.8-4.8-12.5-4.8-17.3 0s-4.8 12.5 0 17.3l76.8 76.8    c2.4 2.4 5.5 3.6 8.7 3.6c3.1 0 6.3-1.2 8.7-3.6l76.8-76.8c4.8-4.8 4.8-12.5 0-17.3s-12.5-4.8-17.3 0l-55.9 55.9V12.3    C256.95 5.5 251.45 0 244.65 0z" FillRule="NonZero"/>
+                                                    </Path.Data>
+                                                </Path>
+                                                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path4214" Fill="#000000">
+                                                    <Path.Data>
+                                                        <PathGeometry Figures="M476.25 464.7H13.05c-6.8 0-12.3 5.5-12.3 12.3s5.5 12.3 12.3 12.3h463.2c6.8 0 12.3-5.5 12.3-12.3    S483.05 464.7 476.25 464.7z" FillRule="NonZero"/>
+                                                    </Path.Data>
+                                                </Path>
+                                            </Canvas>
+                                        </Canvas>
+                                        <Canvas Name="g4220"/>
+                                        <Canvas Name="g4222"/>
+                                        <Canvas Name="g4224"/>
+                                        <Canvas Name="g4226"/>
+                                        <Canvas Name="g4228"/>
+                                        <Canvas Name="g4230"/>
+                                        <Canvas Name="g4232"/>
+                                        <Canvas Name="g4234"/>
+                                        <Canvas Name="g4236"/>
+                                        <Canvas Name="g4238"/>
+                                        <Canvas Name="g4240"/>
+                                        <Canvas Name="g4242"/>
+                                        <Canvas Name="g4244"/>
+                                        <Canvas Name="g4246"/>
+                                        <Canvas Name="g4248"/>
+                                    </Canvas>
+                                </Viewbox>
+
                             </MenuItem.Icon>
                         </MenuItem>
                         <MenuItem Header="价格修改" FontSize="16" Height="40"  Margin="2" Click="PriceModification_Click">
@@ -248,7 +363,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Column="1">
                 <TextBlock Style="{StaticResource regularText}" VerticalAlignment="Center" Margin="20, 0">摊位号：15-80</TextBlock>
                 <TextBlock Style="{StaticResource regularText}" VerticalAlignment="Center" Margin="20, 0">店主：何先生</TextBlock>
-                <Label VerticalAlignment="Center">电子秤连接：</Label>
+                <Label VerticalAlignment="Center" FontSize="16">电子秤连接：</Label>
                 <TextBlock  Style="{StaticResource regularText}" VerticalAlignment="Center" Text="{Binding Path=Connected }" Width="120"></TextBlock>
             </StackPanel>
 

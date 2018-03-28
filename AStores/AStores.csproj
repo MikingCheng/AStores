@@ -132,6 +132,7 @@
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\PriceManagementViewModel.cs" />
     <Compile Include="ViewModel\TodoList.cs" />
     <Compile Include="Views\Configuration.xaml.cs">
       <DependentUpon>Configuration.xaml</DependentUpon>

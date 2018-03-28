@@ -78,6 +78,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlClient, Version=4.2.0.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.4.3\lib\net461\System.Data.SqlClient.dll</HintPath>
@@ -100,6 +101,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\AStoresDBContext.cs" />
+    <Compile Include="Migrations\20180327033858_myfirst.cs" />
+    <Compile Include="Migrations\20180327033858_myfirst.designer.cs">
+      <DependentUpon>20180327033858_myfirst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\AStoresDBContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

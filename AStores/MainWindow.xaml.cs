@@ -16,6 +16,8 @@ using AStores.Views;
 using AStores.SDLScale;
 using AStores.Utilities;
 using AStores.Services;
+using Infrastructure.Data;
+using ApplicationCore.Entities;
 
 namespace AStores
 {
@@ -45,6 +47,22 @@ namespace AStores
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            using (var context = new AStoresDBContext())
+            {
+                var author = new CatalogType()
+                {
+                    F_FullName = "William",
+                    Products = new List<Product>
+                    {
+                        new Product { F_EnCode = "01002", F_FullName="Apple", F_GuidePrice=3.12m, F_ImageUrl1="images/aa.png", F_SalePrice=2.41m, F_StandardCost=0.0m},
+                        new Product { F_EnCode = "01003", F_FullName="Juice", F_GuidePrice=4.12m, F_ImageUrl1="images/aa.png", F_SalePrice=3.41m, F_StandardCost=0.0m},
+                        new Product { F_EnCode = "01004", F_FullName="樱桃", F_GuidePrice=12.12m, F_ImageUrl1="images/aa.png", F_SalePrice=15.41m, F_StandardCost=0.0m},
+                    }
+                };
+                context.Add(author);
+                context.SaveChanges();
+            }
+
             // 初始化皮重
             //if (sdlinft.InitScale())
             //    CoMM.Text = "Conected";
