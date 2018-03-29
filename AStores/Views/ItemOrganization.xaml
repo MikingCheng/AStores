@@ -29,7 +29,7 @@
             </Button>-->
             <Button BorderThickness="0"  Click="Button_Click" Width="50" HorizontalAlignment="Left" Background="Transparent" VerticalAlignment="Top"   >
                 <Grid>
-                    <Path Data="{StaticResource SVGPrevous}" Stretch="Uniform" Fill="Black"  Width="40" Height="40" RenderTransformOrigin="0.5,0.5">
+                    <Path Data="{StaticResource SVGPrevous}" Stretch="Uniform" Fill="DimGray"  Width="40" Height="40" RenderTransformOrigin="0.5,0.5">
                     </Path>
                 </Grid>
             </Button>
@@ -142,11 +142,73 @@
             </Grid>
             <Grid Grid.Column="1">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Button Width="40" Height="40" Style="{StaticResource imageButton}">
-                        <Image Source="/images/add-1.png"  />
+                    <Button Width="60" Height="60" Style="{StaticResource imageButton}" Background="Transparent">
+                        <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="5">
+                            <Canvas Name="Capa_16" Canvas.Left="0" Canvas.Top="0" Width="477.175" Height="477.175">
+                                <Canvas.RenderTransform>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </Canvas.RenderTransform>
+                                <Canvas.Resources/>
+                                <!--Unknown tag: metadata-->
+                                <!--Unknown tag: sodipodi:namedview-->
+                                <Canvas Name="g879">
+                                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path877" Fill="#000000">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M360.731 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5l-215.5 215.5   c-5.3 5.3-5.3 13.8 0 19.1c2.6 2.6 6.1 4 9.5 4c3.4 0 6.9-1.3 9.5-4l225.1-225.1C365.931 242.875 365.931 234.275 360.731 229.075z   " FillRule="NonZero"/>
+                                        </Path.Data>
+                                    </Path>
+                                </Canvas>
+                                <Canvas Name="g881"/>
+                                <Canvas Name="g883"/>
+                                <Canvas Name="g885"/>
+                                <Canvas Name="g887"/>
+                                <Canvas Name="g889"/>
+                                <Canvas Name="g891"/>
+                                <Canvas Name="g893"/>
+                                <Canvas Name="g895"/>
+                                <Canvas Name="g897"/>
+                                <Canvas Name="g899"/>
+                                <Canvas Name="g901"/>
+                                <Canvas Name="g903"/>
+                                <Canvas Name="g905"/>
+                                <Canvas Name="g907"/>
+                                <Canvas Name="g909"/>
+                            </Canvas>
+                        </Viewbox>
                     </Button>
-                    <Button Width="50" Height="50"  Style="{StaticResource imageButton}">
-                        <Image Source="/images/minus-1.png" Margin="5"/>
+                    <Button Width="60" Height="60"  Style="{StaticResource imageButton}" Background="Transparent">
+                        <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="5">
+                            <Canvas Name="Capa_18" Canvas.Left="0" Canvas.Top="0" Width="477.175" Height="477.175">
+                                <Canvas.RenderTransform>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </Canvas.RenderTransform>
+                                <Canvas.Resources/>
+                                <!--Unknown tag: metadata-->
+                                <!--Unknown tag: sodipodi:namedview-->
+                                <Canvas Name="g756">
+                                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path754" Fill="#000000">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M145.188 238.575l215.5-215.5c5.3-5.3 5.3-13.8 0-19.1s-13.8-5.3-19.1 0l-225.1 225.1c-5.3 5.3-5.3 13.8 0 19.1l225.1 225   c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.3-5.3 5.3-13.8 0-19.1L145.188 238.575z" FillRule="NonZero"/>
+                                        </Path.Data>
+                                    </Path>
+                                </Canvas>
+                                <Canvas Name="g758"/>
+                                <Canvas Name="g760"/>
+                                <Canvas Name="g762"/>
+                                <Canvas Name="g764"/>
+                                <Canvas Name="g766"/>
+                                <Canvas Name="g768"/>
+                                <Canvas Name="g770"/>
+                                <Canvas Name="g772"/>
+                                <Canvas Name="g774"/>
+                                <Canvas Name="g776"/>
+                                <Canvas Name="g778"/>
+                                <Canvas Name="g780"/>
+                                <Canvas Name="g782"/>
+                                <Canvas Name="g784"/>
+                                <Canvas Name="g786"/>
+                            </Canvas>
+                        </Viewbox>
                     </Button>
                 </StackPanel>
             </Grid>
@@ -273,14 +335,140 @@
             </Grid>
             <Grid Grid.Column="3">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Button Width="60" Height="60" Margin="10, 120, 10, 20"  Style="{StaticResource imageButton}" >
-                        <Image Source="/images/folder-16.png" Margin="10"/>
+                    <Button Width="60" Height="60" Margin="10, 150, 10, 0"  Style="{StaticResource imageButton}" Background="Transparent" >
+                        <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="5">
+                            <Canvas Name="Capa_15" Canvas.Left="0" Canvas.Top="0" Width="490.4" Height="490.4">
+                                <Canvas.RenderTransform>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </Canvas.RenderTransform>
+                                <Canvas.Resources/>
+                                <!--Unknown tag: metadata-->
+                                <!--Unknown tag: sodipodi:namedview-->
+                                <Canvas Name="g674">
+                                    <Canvas Name="g672">
+                                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path668" Fill="#000000">
+                                            <Path.Data>
+                                                <PathGeometry Figures="M245.2 490.4c135.2 0 245.2-110 245.2-245.2S380.4 0 245.2 0S0 110 0 245.2S110 490.4 245.2 490.4z M245.2 24.5    c121.7 0 220.7 99 220.7 220.7s-99 220.7-220.7 220.7s-220.7-99-220.7-220.7S123.5 24.5 245.2 24.5z" FillRule="NonZero"/>
+                                            </Path.Data>
+                                        </Path>
+                                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path670" Fill="#000000">
+                                            <Path.Data>
+                                                <PathGeometry Figures="M185 216.2l48-48v183.4c0 6.8 5.5 12.3 12.3 12.3c6.8 0 12.3-5.5 12.3-12.3V168.3l48 48c2.4 2.4 5.5 3.6 8.7 3.6    s6.3-1.2 8.7-3.6c4.8-4.8 4.8-12.5 0-17.3l-68.9-68.9c-4.8-4.8-12.5-4.8-17.3 0L167.9 199c-4.8 4.8-4.8 12.5 0 17.3    C172.4 221 180.2 221 185 216.2z" FillRule="NonZero"/>
+                                            </Path.Data>
+                                        </Path>
+                                    </Canvas>
+                                </Canvas>
+                                <Canvas Name="g676"/>
+                                <Canvas Name="g678"/>
+                                <Canvas Name="g680"/>
+                                <Canvas Name="g682"/>
+                                <Canvas Name="g684"/>
+                                <Canvas Name="g686"/>
+                                <Canvas Name="g688"/>
+                                <Canvas Name="g690"/>
+                                <Canvas Name="g692"/>
+                                <Canvas Name="g694"/>
+                                <Canvas Name="g696"/>
+                                <Canvas Name="g698"/>
+                                <Canvas Name="g700"/>
+                                <Canvas Name="g702"/>
+                                <Canvas Name="g704"/>
+                            </Canvas>
+                        </Viewbox>
                     </Button>
-                    <Button Width="60" Height="60" Margin="10, 20" Style="{StaticResource imageButton}">
-                        <Image Source="/images/folder-15.png" Margin="10"/>
+                    <Button Width="60" Height="60" Margin="10, 20" Style="{StaticResource imageButton}" Background="Transparent">
+                        <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="5">
+                            <Canvas Name="Capa_14" Canvas.Left="0" Canvas.Top="0" Width="490.4" Height="490.4">
+                                <Canvas.RenderTransform>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </Canvas.RenderTransform>
+                                <Canvas.Resources/>
+                                <!--Unknown tag: metadata-->
+                                <!--Unknown tag: sodipodi:namedview-->
+                                <Canvas Name="g584">
+                                    <Canvas Name="g582">
+                                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path578" Fill="#000000">
+                                            <Path.Data>
+                                                <PathGeometry Figures="M490.4 245.2C490.4 110 380.4 0 245.2 0S0 110 0 245.2s110 245.2 245.2 245.2S490.4 380.4 490.4 245.2z M24.5 245.2    c0-121.7 99-220.7 220.7-220.7s220.7 99 220.7 220.7s-99 220.7-220.7 220.7S24.5 366.9 24.5 245.2z" FillRule="NonZero"/>
+                                            </Path.Data>
+                                        </Path>
+                                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path580" Fill="#000000">
+                                            <Path.Data>
+                                                <PathGeometry Figures="M253.9 360.4l68.9-68.9c4.8-4.8 4.8-12.5 0-17.3s-12.5-4.8-17.3 0l-48 48V138.7c0-6.8-5.5-12.3-12.3-12.3    s-12.3 5.5-12.3 12.3v183.4l-48-48c-4.8-4.8-12.5-4.8-17.3 0s-4.8 12.5 0 17.3l68.9 68.9c2.4 2.4 5.5 3.6 8.7 3.6    S251.5 362.8 253.9 360.4z" FillRule="NonZero"/>
+                                            </Path.Data>
+                                        </Path>
+                                    </Canvas>
+                                </Canvas>
+                                <Canvas Name="g586"/>
+                                <Canvas Name="g588"/>
+                                <Canvas Name="g590"/>
+                                <Canvas Name="g592"/>
+                                <Canvas Name="g594"/>
+                                <Canvas Name="g596"/>
+                                <Canvas Name="g598"/>
+                                <Canvas Name="g600"/>
+                                <Canvas Name="g602"/>
+                                <Canvas Name="g604"/>
+                                <Canvas Name="g606"/>
+                                <Canvas Name="g608"/>
+                                <Canvas Name="g610"/>
+                                <Canvas Name="g612"/>
+                                <Canvas Name="g614"/>
+                            </Canvas>
+                        </Viewbox>
                     </Button>
-                    <Button Width="60" Height="60" Margin="10, 100, 10,20" Style="{StaticResource imageButton}">
-                        <Image Source="/images/save.png" Margin="10"/>
+                    <Button Width="60" Height="60" Margin="10, 100, 10,20" Style="{StaticResource imageButton}" Background="Transparent">
+                        <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="5">
+                            <Canvas Name="Capa_1" Canvas.Left="0" Canvas.Top="0" Width="486" Height="486">
+                                <Canvas.RenderTransform>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </Canvas.RenderTransform>
+                                <Canvas.Resources/>
+                                <!--Unknown tag: metadata-->
+                                <!--Unknown tag: sodipodi:namedview-->
+                                <Canvas Name="g116">
+                                    <Canvas Name="g114">
+                                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path106" Fill="#000000">
+                                            <Path.Data>
+                                                <PathGeometry Figures="M473.7 485.75c6.8 0 12.3-5.5 12.3-12.3v-359.8c0-3.6-1.6-7-4.3-9.3L363 2.85c-0.2-0.2-0.4-0.3-0.6-0.4    c-0.3-0.2-0.5-0.4-0.8-0.6c-0.4-0.2-0.7-0.4-1.1-0.6c-0.3-0.1-0.6-0.3-0.9-0.4c-0.4-0.2-0.9-0.3-1.3-0.4c-0.3-0.1-0.6-0.2-0.9-0.2    c-0.8-0.1-1.5-0.2-2.3-0.2H12.3C5.5 0.05 0 5.55 0 12.35v461.3c0 6.8 5.5 12.3 12.3 12.3h461.4V485.75z M384.5 461.25h-283v-184.1    c0-3.7 3-6.6 6.6-6.6h269.8c3.7 0 6.6 3 6.6 6.6V461.25z M161.8 24.45h180.9v127.8c0 0.8-0.6 1.4-1.4 1.4h-178    c-0.8 0-1.4-0.7-1.4-1.4V24.45H161.8z M24.6 24.45h112.8v127.8c0 14.3 11.6 25.9 25.9 25.9h178c14.3 0 25.9-11.6 25.9-25.9V38.75    l94.2 80.6v341.9H409v-184.1c0-17.2-14-31.1-31.1-31.1H108.1c-17.2 0-31.1 14-31.1 31.1v184.2H24.6V24.45z" FillRule="NonZero"/>
+                                            </Path.Data>
+                                        </Path>
+                                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path108" Fill="#000000">
+                                            <Path.Data>
+                                                <PathGeometry Figures="M227.4 77.65h53.8v32.6c0 6.8 5.5 12.3 12.3 12.3s12.3-5.5 12.3-12.3v-44.8c0-6.8-5.5-12.3-12.3-12.3h-66.1    c-6.8 0-12.3 5.5-12.3 12.3S220.7 77.65 227.4 77.65z" FillRule="NonZero"/>
+                                            </Path.Data>
+                                        </Path>
+                                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path110" Fill="#000000">
+                                            <Path.Data>
+                                                <PathGeometry Figures="M304.5 322.85h-123c-6.8 0-12.3 5.5-12.3 12.3s5.5 12.3 12.3 12.3h123c6.8 0 12.3-5.5 12.3-12.3    S311.3 322.85 304.5 322.85z" FillRule="NonZero"/>
+                                            </Path.Data>
+                                        </Path>
+                                        <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path112" Fill="#000000">
+                                            <Path.Data>
+                                                <PathGeometry Figures="M304.5 387.75h-123c-6.8 0-12.3 5.5-12.3 12.3s5.5 12.3 12.3 12.3h123c6.8 0 12.3-5.5 12.3-12.3    S311.3 387.75 304.5 387.75z" FillRule="NonZero"/>
+                                            </Path.Data>
+                                        </Path>
+                                    </Canvas>
+                                </Canvas>
+                                <Canvas Name="g118"/>
+                                <Canvas Name="g120"/>
+                                <Canvas Name="g122"/>
+                                <Canvas Name="g124"/>
+                                <Canvas Name="g126"/>
+                                <Canvas Name="g128"/>
+                                <Canvas Name="g130"/>
+                                <Canvas Name="g132"/>
+                                <Canvas Name="g134"/>
+                                <Canvas Name="g136"/>
+                                <Canvas Name="g138"/>
+                                <Canvas Name="g140"/>
+                                <Canvas Name="g142"/>
+                                <Canvas Name="g144"/>
+                                <Canvas Name="g146"/>
+                            </Canvas>
+                        </Viewbox>
+
+                        <!--<Image Source="/images/save.png" Margin="10"/>-->
                     </Button>
                 </StackPanel>
             </Grid>

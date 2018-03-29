@@ -117,7 +117,7 @@ namespace AStores
 
         private void DownloadProduct_Click(object sender, RoutedEventArgs e)
         {
-            Window pm = new ItemManagement();
+            Window pm = new ItemOrganization();
             pm.Show();
         }
 
