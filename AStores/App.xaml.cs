@@ -45,8 +45,10 @@ namespace AStores
         private void LoadData()
         {
 
-            todoLists.Add(new ToDoItem { Name = "Shopping", Price = 2.21M });
-            todoLists.Add(new ToDoItem { Name = "Laundry", Price = 3.21M });
+            todoLists.Add(new ToDoItem { ID = 1, Name = "Apple", Price = 2.21M, Weight = 2.45 });
+            todoLists.Add(new ToDoItem { ID = 2, Name = "Juice", Price = 3.21M, Weight = 3.45 });
+            todoLists.Add(new ToDoItem { ID = 3, Name = "Cheey", Price = 5.21M, Weight = 4.45 });
+            todoLists.Add(new ToDoItem { ID = 4, Name = "Blueberry", Price = 4.21M, Weight = 5.45 });
             //           throw new NotImplementedException();
         }
     }

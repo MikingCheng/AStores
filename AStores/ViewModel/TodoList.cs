@@ -22,6 +22,10 @@ namespace AStores.ViewModel
 
         private string _name;
         private decimal _price;
+        private decimal _total;
+        private double _weight;
+
+        public int ID { get; set; }
 
         public string Name
         {
@@ -40,6 +44,27 @@ namespace AStores.ViewModel
             {
                 this._price = value;
                 OnPropertyChanged("Price");
+            }
+        }
+
+        public String Total
+        {
+            get { return this._total.ToString("0.##"); }
+            //set
+            //{
+            //    this._total = value;
+            //    OnPropertyChanged("Total");
+            //}
+        }
+
+        public double  Weight
+        {
+            get { return this._weight ; }
+            set
+            {
+                this._weight = value;
+                _total = (decimal) _weight * _price;
+                OnPropertyChanged("ToWeighttal");
             }
         }
 
