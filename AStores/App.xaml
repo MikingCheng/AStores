@@ -9,7 +9,7 @@
         <Style TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="Height" Value="50" />
-            <Setter Property="Background" Value="#FFDCDCDC" />
+            <Setter Property="Background" Value="LightGray" />
             <Setter Property="BorderBrush" Value="LightGray" />
             <Setter Property="BorderThickness" Value="0,0,0,1" />
             <!--<Setter Property="FontFamily" Value="pack://application:,,,/fonts/#xxx Clear"></Setter>-->

@@ -47,14 +47,14 @@ namespace AStores.ViewModel
             }
         }
 
-        public String Total
+        public string Total
         {
-            get { return this._total.ToString("0.##"); }
-            //set
-            //{
-            //    this._total = value;
-            //    OnPropertyChanged("Total");
-            //}
+            get { return ((decimal)this._weight * _price).ToString("0.##"); }
+            set
+            {
+                this._total = Convert.ToDecimal(value);
+                OnPropertyChanged("Price");
+            }
         }
 
         public double  Weight

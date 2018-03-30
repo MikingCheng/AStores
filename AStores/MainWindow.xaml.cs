@@ -157,5 +157,10 @@ namespace AStores
  //           sdlinft.Close();
 
         }
+
+        private void orderCheckGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

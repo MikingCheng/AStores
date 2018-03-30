@@ -1,10 +1,12 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using AStores.SDLScale.Interface;
 using AStores.Services;
 using AStores.Utilities;
 using AStores.ViewModel;
 using AStores.SDLScale;
+using System.Linq;
 
 namespace AStores
 {
@@ -21,14 +23,15 @@ namespace AStores
         {
             //            base.OnStartup(e);
 
+            LoadData();
+            TotalAmount = todoLists.Sum(a => Convert.ToDecimal(a.Total)).ToString("0.##");
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
 
             ShowSndScreen();
-
-            LoadData();
-
         }
+
+        public string TotalAmount { get; set; }
 
         private void ShowSndScreen()
         {

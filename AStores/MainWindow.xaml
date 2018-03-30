@@ -7,11 +7,12 @@
         xmlns:local="clr-namespace:AStores.ViewModel"
         xmlns:vm="clr-namespace:AStores.ViewModel"
         mc:Ignorable="d" 
-     Width="1024" Height="768"       WindowStyle="None" Closed="Window_Closed"
+        WindowState="Maximized"   WindowStyle="None" 
         Title="MainWindow" >
+     <!--Width="1024" Height="768"       WindowStyle="None" Closed="Window_Closed"-->
 
-         <!--WindowState="Maximized"--> 
-   <Window.DataContext>
+
+    <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
 
@@ -127,12 +128,13 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <StackPanel Orientation="Horizontal" >
-                        <Button Content="补 水" Style="{StaticResource regularButton}" Click="Button_Click_1" Width="60"></Button>
-                        <Button Content="流 水" Style="{StaticResource regularButton}" Click="Button_Click_2" Width="60"></Button>
-                        <Button Content="去 皮" Style="{StaticResource regularButton}" Click="Button_Click_3" Width="60"></Button>
+                        <Button Content="补 水" Style="{StaticResource regularButton}" Click="Button_Click_1" Width="70"></Button>
+                        <Button Content="流 水" Style="{StaticResource regularButton}" Click="Button_Click_2" Width="70"></Button>
+                        <Button Content="去 皮" Style="{StaticResource regularButton}" Click="Button_Click_3" Width="70"></Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                             <Button Width="50" Height="50" Margin="5, 0" BorderThickness="0" Background="Transparent">
@@ -259,7 +261,7 @@
                         </StackPanel>
                                 
                 </Grid>
-                <Grid Grid.Row="1" Style="{StaticResource SubGrid}" >
+                <Grid Grid.Row="1" Style="{StaticResource SubGrid}" Background="LightGray">
                     <DataGrid ScrollViewer.VerticalScrollBarVisibility="Hidden" Name="orderCheckGrid" 
                                               ItemsSource="{Binding Source={StaticResource listingDataView}}" 
                                               AutoGenerateColumns="False" ColumnHeaderHeight="38"  SelectionMode="Single" 
@@ -267,7 +269,7 @@
                                               VerticalContentAlignment="Center"  HorizontalContentAlignment="Center" 
                                               GridLinesVisibility="None" HeadersVisibility="Column" CanUserResizeRows="False" 
                                               Background="White" CanUserAddRows="False" Focusable="False" BorderThickness="0" 
-                                              Margin="5" IsReadOnly="True" AlternatingRowBackground="#FFE6E6E6" AlternationCount="2" Grid.ColumnSpan="2">
+                                              Margin="5" IsReadOnly="True" AlternatingRowBackground="#FFE6E6E6" AlternationCount="2" Grid.ColumnSpan="2" SelectionChanged="orderCheckGrid_SelectionChanged">
                         <!--<i:Interaction.Triggers>
                     <i:EventTrigger EventName="PreviewMouseUp">
                         <i:InvokeCommandAction Command="{Binding OrderCheckMouseUpCommand}" CommandParameter="{Binding ElementName=orderCheckGrid}"/>
@@ -338,7 +340,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-                                            <TextBlock Text="{Binding Path=Weight}" FontSize="20" Margin="5"/>
+                                            <TextBlock Text="{Binding Path=Weight}" FontSize="20" Margin="5, 5, 10, 5"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -348,7 +350,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-                                            <TextBlock Text="{Binding Path=Total}" FontSize="20" Margin="5"/>
+                                            <TextBlock Text="{Binding Path=Total}" FontSize="20" Margin="5" FontWeight="Bold"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -405,13 +407,27 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label HorizontalAlignment="Right" Margin="10, 0"  VerticalAlignment="Center" FontSize="26">总额（元）：</Label>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBlock Text="{Binding Path=TotalAmount }"  VerticalAlignment="Center"
+                                 Width="120" HorizontalAlignment="Left" FontSize="36" FontWeight="Bold">
+                        </TextBlock>
+                    </Grid>
+                </Grid>
             </Grid>
             <Grid Grid.Column="1" Style="{StaticResource SubGrid}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0"  >
                     <StackPanel Name="sp" Orientation="Horizontal" >
                         <Button Style="{StaticResource regularButton}" Content="海 鲜"></Button>
                         <Button Style="{StaticResource regularButton}" Content="青 菜"></Button>
@@ -420,36 +436,47 @@
                         <Button Style="{StaticResource regularButton}" Content="其 它"></Button>
                     </StackPanel>
                 </Grid>
-                <Grid Grid.Row="1" Margin="5">
+                <Grid Grid.Row="1" Margin="5" Background="LightGray">
+
+                    <Grid.Resources>
+                        <DataTemplate x:Key="CutomerC" DataType="{x:Type vm:Person}" >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                                <Grid Margin="2" Height="80">
+                                    <Image Source="Images\dabaicai.png"></Image>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <TextBlock>
+                                <TextBlock Text="大白菜" FontSize="14"></TextBlock>
+                                (<TextBlock x:Name="AgeTextBlock" Text="3.25" />)
+                            </TextBlock>
+                                </Grid>
+
+                            </Grid>
+
+                        </DataTemplate>
+                    </Grid.Resources>
                     <WrapPanel>
-                        <Rectangle Height="100" Width="100" Name="SampleButton" Grid.Column="1" Grid.Row="0" Margin="3">
-                            <!--<Rectangle.Fill>
-
- //                               <ImageBrush ImageSource="images/combo.png"/>
-
-                            </Rectangle.Fill>-->
-                        </Rectangle>
-
-                        <Button Style="{StaticResource productButton}"></Button>
-                        <Button Style="{StaticResource productButton}"></Button>
-                        <Button Style="{StaticResource productButton}"></Button>
-                        <Button Style="{StaticResource productButton}"></Button>
-                        <Button Style="{StaticResource productButton}"></Button>
-                        <Button Style="{StaticResource productButton}"></Button>
-                        <Button Style="{StaticResource productButton}"></Button>
-                        <Button Style="{StaticResource productButton}"></Button>
-                        <Button Style="{StaticResource productButton}"></Button>
-                        <Button Style="{StaticResource productButton}"></Button>
+                        <Button Height="100" Width="100" ContentTemplate="{StaticResource CutomerC}" Margin="3" BorderThickness="0"></Button>
+                        <Button Height="100" Width="100" ContentTemplate="{StaticResource CutomerC}"  Margin="3" BorderThickness="0"></Button>
+                        <Button Height="100" Width="100" ContentTemplate="{StaticResource CutomerC}" Margin="3" BorderThickness="0"></Button>
+                        <Button Height="100" Width="100" ContentTemplate="{StaticResource CutomerC}" Margin="3" BorderThickness="0"></Button>
+                        <Button Height="100" Width="100" ContentTemplate="{StaticResource CutomerC}" Margin="3"  BorderThickness="0"></Button>
+                        <Button Height="100" Width="100" ContentTemplate="{StaticResource CutomerC}" Margin="3" BorderThickness="0" ></Button>
+                        <Button Height="100" Width="100" ContentTemplate="{StaticResource CutomerC}" Margin="3" BorderThickness="0"></Button>
+                        <Button Height="100" Width="100" ContentTemplate="{StaticResource CutomerC}" Margin="3" BorderThickness="0"></Button>
+                        <Button Height="100" Width="100" ContentTemplate="{StaticResource CutomerC}" Margin="3" BorderThickness="0"></Button>
+                        <Button Height="100" Width="100" ContentTemplate="{StaticResource CutomerC}" Margin="3" BorderThickness="0"></Button>
+                        <Button Height="100" Width="100" ContentTemplate="{StaticResource CutomerC}" Margin="3" BorderThickness="0"></Button>
+                        <Button Height="100" Width="100" ContentTemplate="{StaticResource CutomerC}" Margin="3" BorderThickness="0"></Button>
                     </WrapPanel>
                 </Grid>
             </Grid>
         </Grid>
-        <Grid Grid.Row="2" Background="LightGray" HorizontalAlignment="Right" Width="1016">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="139*"/>
-                <ColumnDefinition Width="369*"/>
-            </Grid.ColumnDefinitions>
-
+        <Grid Grid.Row="2" Background="LightGray" HorizontalAlignment="Stretch" >
             <Button BorderThickness="0"  Click="Button_Click" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 5" Background="Transparent">
                     <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="5, 5" >
                         <Canvas Name="Capa_18" Canvas.Left="0" Canvas.Top="0" Width="490" Height="490">
@@ -577,14 +604,6 @@
                                 </Viewbox>
                             </MenuItem.Icon>
                         </MenuItem>
-                        <!--<MenuItem Header="菜单组织" FontSize="16" Height="40"  Margin="2" Click="ProductOrganization_Click">
-                            <MenuItem.Icon>
-                                <Image Source="images/folder-7.png"></Image>
-                                -->
-                        <!--<TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xEA86;"></TextBlock>-->
-                        <!--
-                            </MenuItem.Icon>
-                        </MenuItem>-->
                         <Separator Margin="2"/>
                         <MenuItem Header="参数配置" FontSize="16" Height="40" Margin="2" Click="Configuration_Click">
                             <MenuItem.Icon>
@@ -627,9 +646,6 @@
                                         <Canvas Name="g418"/>
                                     </Canvas>
                                 </Viewbox>
-
-                                <!--<Image Source="images/settings-6.png"></Image>-->
-                                <!--<TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xE713;"></TextBlock>-->
                             </MenuItem.Icon>
                         </MenuItem>
                         <Separator Margin="2"/>
@@ -694,15 +710,13 @@
                                         <Canvas Name="g524"/>
                                     </Canvas>
                                 </Viewbox>
-                                <!--<Image Source="images/note.png"/>-->
-                                <!--<TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xF168;"></TextBlock>-->
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="second Monitor" FontSize="16" Height="40" Margin="2" Click="Second_Click">
+                        <!--<MenuItem Header="second Monitor" FontSize="16" Height="40" Margin="2" Click="Second_Click">
                             <MenuItem.Icon>
                                 <TextBlock FontFamily="Segoe MDL2 Assets"  Height="36" Width="36"  FontSize="16" Text="&#xF168;"></TextBlock>
                             </MenuItem.Icon>
-                        </MenuItem>
+                        </MenuItem>-->
                     </ContextMenu>
                 </Button.ContextMenu>
             </Button>

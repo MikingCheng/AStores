@@ -21,7 +21,22 @@ namespace AStores.ViewModel
 
         private decimal _weight;
         private string _connectedString;
+        private string _total;
 
+        public string TotalAmount
+        {
+            get
+            {
+                //return _toal;
+                return ((App)Application.Current).TotalAmount;
+            }
+            set
+            {
+                _total = value;
+                this.OnPropertyChanged("TotalAmount");
+
+            }
+        }
         public string Weight
         {
             get { return string.Format("{0:#.##}", _weight); }
@@ -29,6 +44,30 @@ namespace AStores.ViewModel
             { 
                 _weight = System.Convert.ToDecimal(value);
                 this.OnPropertyChanged("Weight");
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return "大白菜";
+            }
+            set
+            {
+                Name = value;
+                this.OnPropertyChanged("Name");
+
+            }
+        }
+        public string Price
+        {
+            get { return "3.21"; }
+            set
+            {
+                Name = value;
+                this.OnPropertyChanged("Price");
+
             }
         }
 
